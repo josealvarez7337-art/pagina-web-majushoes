@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maju Shoes — Tienda de zapatos en Medellín</title>
+<meta name="description" content="Maju Shoes: tenis, botas y zapatos casuales en Medellín. Compra en línea, recibe a domicilio o recoge gratis en nuestro local de la Calle 54 #57-60.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23D91C2B'/%3E%3Ctext x='16' y='23' font-family='Arial Black,Arial' font-size='19' font-weight='900' fill='%23FFFFFF' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>★ Nueva colección cada semana &nbsp;&nbsp;★&nbsp;&nbsp; Envíos a todo Medellín &nbsp;&nbsp;★&nbsp;&nbsp; Recoge en tienda gratis &nbsp;&nbsp;★&nbsp;&nbsp; Tallas 35 a 43 &nbsp;&nbsp;★&nbsp;&nbsp;</span>
+    <span>★ Nueva colección cada semana &nbsp;&nbsp;★&nbsp;&nbsp; Envíos a todo Medellín &nbsp;&nbsp;★&nbsp;&nbsp; Recoge en tienda gratis &nbsp;&nbsp;★&nbsp;&nbsp; Tallas 35 a 43 &nbsp;&nbsp;★&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<header>
+  <a class="logo" href="#">MAJU <span>SHOES</span></a>
+  <nav class="main-nav" aria-label="Navegación principal">
+    <a href="#catalogo">Catálogo</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#entrega">Envío y recogida</a>
+    <a href="#faq">Preguntas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <div class="header-actions">
+    <button class="icon-btn" id="searchBtn" aria-label="Buscar en el catálogo" title="Buscar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+    </button>
+    <button class="icon-btn cart-icon-wrap" id="cartIcon" aria-label="Abrir carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="cart-count hidden" id="cartCount">0</span>
+    </button>
+    <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+  <a href="#catalogo">Catálogo</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#entrega">Envío y recogida</a>
+  <a href="#faq">Preguntas</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">Nueva colección · Medellín</p>
+    <h1><span class="split-word" style="animation-delay:.05s">Pisa</span> <span class="split-word" style="animation-delay:.13s">fuerte</span><br><span class="split-word" style="animation-delay:.21s"><em>sin</em></span> <span class="split-word" style="animation-delay:.29s">complicarte.</span></h1>
+    <p>En Maju Shoes encuentras las referencias que están sonando ahora mismo — tenis, botas y clásicos, todo en un mismo lugar. Del local a tu puerta, cuando quieras.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+      <a class="btn btn-ghost" href="#nosotros">Conócenos</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 200 140" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M16 108 C16 90, 28 78, 44 74 L92 58 C104 54, 112 44, 118 32 C122 24, 132 22, 138 28 L150 40 C168 44, 182 56, 182 78 L182 108 C182 114, 178 118, 172 118 L22 118 C18 118, 16 114, 16 108 Z"/>
+      <path d="M44 74 L44 96" stroke-dasharray="3 5"/>
+      <path d="M62 68 L64 92" stroke-dasharray="3 5"/>
+      <path d="M80 62 L84 90" stroke-dasharray="3 5"/>
+    </svg>
+    <div class="hero-tag" id="heroTag">Maju Runner — $259.000</div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<section id="catalogo">
+  <div class="section-head reveal">
+    <div>
+      <p class="eyebrow">Catálogo</p>
+      <h2>Lo nuevo esta semana</h2>
+    </div>
+  </div>
+  <div class="catalog-toolbar reveal">
+    <div class="chips" id="categoryChips" role="group" aria-label="Filtrar por categoría"></div>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+      <input type="search" id="searchInput" placeholder="Buscar referencia..." aria-label="Buscar en el catálogo">
+    </div>
+  </div>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<div class="stripe"></div>
+
+<section id="nosotros">
+  <div class="about reveal">
+    <div class="about-copy">
+      <p class="eyebrow">Quiénes somos</p>
+      <h2>Un local, todas<br>las referencias.</h2>
+      <p>Maju Shoes es tu tienda de zapatos en Medellín. Seleccionamos referencias nuevas cada semana para que siempre tengas algo distinto entre qué elegir, sin salir del local.</p>
+      <div class="stat-row">
+        <div class="stat"><b data-count="50" data-suffix="+">0</b><span>referencias activas</span></div>
+        <div class="stat"><b data-count="1" data-suffix="">0</b><span>local en Medellín</span></div>
+        <div class="stat"><b data-count="7" data-suffix="">0</b><span>días de atención</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="entrega">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Cómo recibir tu pedido</p>
+      <h2>Envío o recogida en tienda</h2>
+    </div>
+  </div>
+  <div class="options reveal">
+    <div class="opt">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="13" height="10" rx="1"/><path d="M16 11h3l2 3v4h-5"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg>
+      <h3>Envío a domicilio</h3>
+      <p>Cubrimos Medellín y el área metropolitana. El costo y el tiempo de entrega se confirman al momento de hacer tu pedido, según tu dirección.</p>
+    </div>
+    <div class="opt">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l1-5h16l1 5"/><path d="M4 9h16v10H4z"/><path d="M9 13h6v6H9z"/></svg>
+      <h3>Recogida en el local</h3>
+      <p>Arma tu pedido en línea y recógelo sin costo en nuestra tienda de la Calle 54 #57-60, Medellín. Te avisamos cuando esté listo.</p>
+    </div>
+    <div class="opt">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>
+      <h3>Pago fácil</h3>
+      <p>Paga por Nequi, transferencia o en efectivo al recibir o recoger. Confirmamos todo contigo por WhatsApp antes de despachar.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<section id="faq">
+  <div class="section-head reveal">
+    <div>
+      <p class="eyebrow">Ayuda</p>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">¿Hacen envíos a domicilio?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>Sí, cubrimos Medellín y el área metropolitana. Cuando confirmes tu pedido te indicamos el costo del envío y el tiempo estimado según tu dirección.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">¿Puedo recoger mi pedido en la tienda?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>Claro. La recogida en el local es gratis: arma tu pedido en la página y te avisamos por WhatsApp cuando esté listo en la Calle 54 #57-60, Medellín.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">¿Cómo pago mi pedido?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>Por ahora el pago se coordina por WhatsApp al confirmar tu pedido: puedes pagar por Nequi, transferencia bancaria o en efectivo al recibir o al recoger en el local. Pronto habilitaremos el pago en línea directamente en la página.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">¿Puedo cambiar la talla si no me queda?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>Sí. Aceptamos cambios de talla o de referencia dentro de los 8 días siguientes a la entrega, siempre que el producto esté sin uso y en su caja original. Escríbenos por WhatsApp y coordinamos el cambio.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">¿Qué tallas manejan?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>Manejamos tallas de la 35 a la 43 según la referencia. En cada producto ves las tallas disponibles, y si tienes dudas puedes consultar nuestra <a href="#" data-open-size-guide>guía de tallas</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="section-head reveal">
+    <div>
+      <p class="eyebrow">Contacto</p>
+      <h2>Visítanos o escríbenos</h2>
+    </div>
+  </div>
+  <div class="contact-grid reveal">
+    <div class="contact-card">
+      <h3>Nuestra tienda</h3>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span><a id="contactAddress" href="#" target="_blank" rel="noopener">Calle 54 #57-60, Medellín</a><br><span class="muted">Antioquia, Colombia</span></span>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+        <span><a id="contactPhone" href="#">+57 313 477 9723</a><br><span class="muted">WhatsApp de pedidos</span></span>
+      </div>
+      <div class="contact-line" id="contactInstagramLine">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/></svg>
+        <span id="contactInstagram" class="muted">Instagram · próximamente</span>
+      </div>
+      <div class="contact-cta">
+        <a class="btn btn-primary" id="contactWaBtn" href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>Horario de atención</h3>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span>Atendemos los 7 días de la semana.<br><span class="muted">Escríbenos por WhatsApp y te confirmamos el horario del local.</span></span>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        <span>¿Dudas con tu talla o una referencia?<br><span class="muted">Mándanos foto o pantallazo del zapato que buscas y te contamos si lo tenemos.</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="logo">MAJU <span>SHOES</span></div>
+      <p>Tienda de zapatos con local físico en Medellín. Tenis, botas y clásicos con referencias nuevas cada semana.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Tienda</h4>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nosotros</a>
+      <button type="button" data-open-size-guide>Guía de tallas</button>
+    </div>
+    <div class="foot-col">
+      <h4>Ayuda</h4>
+      <a href="#entrega">Envíos y recogida</a>
+      <a href="#faq">Cambios y devoluciones</a>
+      <a href="#faq">Preguntas frecuentes</a>
+    </div>
+    <div class="foot-col">
+      <h4>Visítanos</h4>
+      <a id="footAddress" href="#" target="_blank" rel="noopener">Calle 54 #57-60, Medellín</a>
+      <a id="footWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp: +57 313 477 9723</a>
+      <span class="muted" id="footInstagram">Instagram · próximamente</span>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Maju Shoes</span>
+    <span>Medellín, Colombia</span>
+  </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4.5 28l6.3-1.6a12 12 0 0 0 5.2 1.2c6.6 0 12-5.3 12-11.9C28 8.3 22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.3l-.4-.2-3.7 1 1-3.6-.3-.4a9.7 9.7 0 0 1-1.7-5.4c0-5.4 4.5-9.9 10.1-9.9s10.1 4.4 10.1 9.9-4.5 9.9-10.1 9.9zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.5-.2z"/></svg>
+</a>
+
+<!-- Capa oscura compartida -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Carrito -->
+<aside class="drawer" id="cartDrawer" aria-label="Carrito de compras" aria-hidden="true">
+  <div class="drawer-head">
+    <h3>Tu carrito</h3>
+    <button class="close-x" id="cartClose" aria-label="Cerrar carrito">×</button>
+  </div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>Total</span><b id="cartTotal">$0</b></div>
+    <p class="drawer-note">Al finalizar, tu pedido se envía por WhatsApp y coordinamos contigo el pago y la entrega.</p>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">Finalizar pedido</button>
+  </div>
+</aside>
+
+<!-- Ventana de producto -->
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-box">
+    <button class="close-x modal-close" data-close-modal aria-label="Cerrar">×</button>
+    <div class="product-layout">
+      <div class="product-media" id="pmMedia"></div>
+      <div class="product-info">
+        <p class="eyebrow" id="pmCategory"></p>
+        <h3 id="pmName"></h3>
+        <p class="cat" id="pmGender"></p>
+        <span class="price" id="pmPrice"></span>
+        <p class="size-label">Elige tu talla <button type="button" class="size-guide-link" data-open-size-guide>Guía de tallas</button></p>
+        <div class="sizes" id="pmSizes"></div>
+        <p class="size-hint" id="pmHint">Selecciona una talla para continuar.</p>
+        <button class="btn btn-primary btn-block" id="pmAddBtn">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Guía de tallas -->
+<div class="modal" id="sizeGuideModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-box">
+    <button class="close-x modal-close" data-close-modal aria-label="Cerrar">×</button>
+    <div class="size-guide-box">
+      <h3>Guía de tallas</h3>
+      <p class="note">Mide tu pie del talón al dedo más largo, de pie y con el peso repartido. Las equivalencias son aproximadas: si estás entre dos tallas, te recomendamos la mayor.</p>
+      <div class="size-table-wrap">
+        <table class="size-table">
+          <thead>
+            <tr><th>Talla CO / EU</th><th>US Mujer</th><th>US Hombre</th><th>Largo del pie</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>35</td><td>5</td><td>—</td><td>22,5 cm</td></tr>
+            <tr><td>36</td><td>6</td><td>—</td><td>23,0 cm</td></tr>
+            <tr><td>37</td><td>6.5</td><td>—</td><td>23,5 cm</td></tr>
+            <tr><td>38</td><td>7.5</td><td>6</td><td>24,5 cm</td></tr>
+            <tr><td>39</td><td>8.5</td><td>6.5</td><td>25,0 cm</td></tr>
+            <tr><td>40</td><td>9</td><td>7.5</td><td>25,5 cm</td></tr>
+            <tr><td>41</td><td>9.5</td><td>8</td><td>26,5 cm</td></tr>
+            <tr><td>42</td><td>10</td><td>9</td><td>27,0 cm</td></tr>
+            <tr><td>43</td><td>—</td><td>10</td><td>28,0 cm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
