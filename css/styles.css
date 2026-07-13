@@ -68,11 +68,15 @@ header{
   transition:padding 0.25s ease, box-shadow 0.25s ease;
 }
 header.scrolled{padding-top:12px; padding-bottom:12px; box-shadow:0 4px 18px rgba(21,17,16,0.08);}
-.logo{
-  font-family:'Anton', sans-serif;
-  font-size:1.6rem; letter-spacing:0.02em;
+.logo{display:inline-flex; align-items:center;}
+.logo-img{
+  height:64px; width:auto; display:block;
+  /* el fondo blanco del JPEG se funde con el fondo de la página */
+  mix-blend-mode:multiply;
+  transition:height 0.25s ease;
 }
-.logo span{color:var(--red);}
+header.scrolled .logo-img{height:48px;}
+.logo-img-foot{height:150px;}
 nav.main-nav{display:flex; gap:34px; font-size:0.88rem; font-weight:600; text-transform:uppercase; letter-spacing:0.03em;}
 nav.main-nav a{position:relative; padding-bottom:4px;}
 nav.main-nav a::after{
@@ -343,8 +347,6 @@ footer{
   display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:40px;
   padding-bottom:40px; border-bottom:1px solid var(--line);
 }
-footer .logo{color:var(--black);}
-footer .logo span{color:var(--red);}
 footer > .foot-grid p{font-size:0.88rem; color:var(--gray); margin-top:14px; line-height:1.6; max-width:280px;}
 .foot-col h4{font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); margin-bottom:16px; font-weight:700;}
 .foot-col a, .foot-col button{
@@ -511,7 +513,6 @@ footer > .foot-grid p{font-size:0.88rem; color:var(--gray); margin-top:14px; lin
 .hero > div:first-child > *{
   opacity:0; animation:fadeUp 0.7s ease forwards;
 }
-.hero .eyebrow{animation-delay:0.05s;}
 .hero h1{animation-delay:0.15s;}
 .hero p{animation-delay:0.28s;}
 .hero .btn-row{animation-delay:0.4s;}
@@ -572,10 +573,11 @@ footer > .foot-grid p{font-size:0.88rem; color:var(--gray); margin-top:14px; lin
   .grid{grid-template-columns:repeat(3,1fr);}
 }
 @media (max-width:900px){
-  header{padding:16px 20px;}
+  header{padding:12px 20px;}
+  .logo-img{height:54px;}
   nav.main-nav{display:none;}
   .hamburger{display:inline-flex;}
-  .mobile-menu{display:block;}
+  .mobile-menu{display:block; padding-top:104px;}
   .hero{grid-template-columns:1fr; padding:50px 24px;}
   section{padding:50px 24px;}
   .grid{grid-template-columns:repeat(2,1fr); gap:14px;}

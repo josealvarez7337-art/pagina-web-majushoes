@@ -79,19 +79,19 @@ function showToast(msg) {
 
 /* ---------- Catálogo: filtros, buscador y grilla ---------- */
 
-var activeCategory = 'todos';
+var activeFilter = 'todos';
 var searchTerm = '';
 var grid = document.getElementById('productGrid');
 
 function renderChips() {
   var wrap = document.getElementById('categoryChips');
   wrap.innerHTML = '';
-  Object.keys(CATEGORIES).forEach(function (key) {
+  Object.keys(FILTERS).forEach(function (key) {
     var b = document.createElement('button');
-    b.className = 'chip' + (key === activeCategory ? ' active' : '');
-    b.textContent = CATEGORIES[key];
+    b.className = 'chip' + (key === activeFilter ? ' active' : '');
+    b.textContent = FILTERS[key];
     b.addEventListener('click', function () {
-      activeCategory = key;
+      activeFilter = key;
       renderChips();
       renderCatalog();
     });
@@ -99,13 +99,18 @@ function renderChips() {
   });
 }
 
+/* Los productos Unisex aparecen tanto en "Hombre" como en "Mujer" */
+function matchesFilter(p) {
+  if (activeFilter === 'todos') return true;
+  return p.gender.toLowerCase() === activeFilter || p.gender === 'Unisex';
+}
+
 function renderCatalog() {
   var term = searchTerm.trim().toLowerCase();
   var visible = PRODUCTS.filter(function (p) {
-    var matchCat = activeCategory === 'todos' || p.category === activeCategory;
     var haystack = (p.name + ' ' + CATEGORIES[p.category] + ' ' + p.gender).toLowerCase();
     var matchTerm = !term || haystack.indexOf(term) !== -1;
-    return matchCat && matchTerm;
+    return matchesFilter(p) && matchTerm;
   });
 
   grid.innerHTML = '';
@@ -333,7 +338,7 @@ function renderCart() {
   if (!cart.length) {
     wrap.innerHTML =
       '<div class="cart-empty">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4h2.2l2.5 11.2h11l2.3-7.7H6"/><circle cx="9.5" cy="19.5" r="1.6"/><circle cx="16.5" cy="19.5" r="1.6"/></svg>' +
         '<b>Tu carrito está vacío</b>' +
         'Explora el catálogo y agrega tus referencias favoritas.' +
       '</div>';

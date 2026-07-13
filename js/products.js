@@ -7,8 +7,9 @@
    {
      id:       texto único, sin espacios (se usa para el carrito)
      name:     nombre que ve el cliente
-     category: "tenis" | "botas" | "casual"   (para los filtros)
-     gender:   "Hombre" | "Mujer" | "Unisex"  (solo informativo)
+     category: "tenis" | "botas" | "casual"   (etiqueta descriptiva)
+     gender:   "Hombre" | "Mujer" | "Unisex"  (para los filtros;
+               los Unisex aparecen al filtrar Hombre y también Mujer)
      price:    precio en pesos, SIN puntos (259000 = $259.000)
      sizes:    tallas disponibles
      tag:      etiqueta opcional ("Nuevo", "Últimas tallas", ...) o ""
@@ -153,10 +154,16 @@ const PRODUCTS = [
   },
 ];
 
-/* Nombres visibles de las categorías (filtros del catálogo) */
+/* Etiquetas descriptivas de las categorías (se muestran en cada producto) */
 const CATEGORIES = {
-  todos: "Todos",
   tenis: "Tenis",
   botas: "Botas",
   casual: "Casual",
+};
+
+/* Filtros del catálogo */
+const FILTERS = {
+  todos: "Todos",
+  hombre: "Hombre",
+  mujer: "Mujer",
 };
