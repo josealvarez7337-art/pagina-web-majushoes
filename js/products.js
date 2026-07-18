@@ -21,6 +21,17 @@
 
 const PRODUCTS = [
   {
+    id: "nike-dn",
+    name: "Nike DN",
+    category: "tenis",
+    gender: "Unisex",
+    price: 140000,
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+    tag: "Nuevo",
+    art: "runner",
+    image: "img/nike-dn.jpeg",
+  },
+  {
     id: "maju-runner",
     name: "Maju Runner",
     category: "tenis",
