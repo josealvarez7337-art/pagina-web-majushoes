@@ -60,6 +60,21 @@ function getProduct(id) {
   if (heroTag && PRODUCTS.length) {
     heroTag.textContent = PRODUCTS[0].name + ' — ' + formatPrice(PRODUCTS[0].price);
   }
+
+  /* Imagen del hero: si el primer producto tiene foto real, reemplaza
+     el dibujo de muestra por esa foto */
+  var heroArt = document.querySelector('.hero-art');
+  if (heroArt && PRODUCTS.length && PRODUCTS[0].image) {
+    var heroSvg = heroArt.querySelector('svg');
+    if (heroSvg) {
+      var heroImg = document.createElement('img');
+      heroImg.src = PRODUCTS[0].image;
+      heroImg.alt = PRODUCTS[0].name;
+      heroImg.className = 'hero-photo';
+      heroSvg.replaceWith(heroImg);
+      heroArt.classList.add('has-photo');
+    }
+  }
 })();
 
 /* ---------- Aviso flotante (toast) ---------- */
