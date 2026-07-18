@@ -404,6 +404,11 @@ function buildOrderMessage() {
   cart.forEach(function (it) {
     var p = getProduct(it.id);
     lines.push('• ' + p.name + ' — Talla ' + it.size + ' x' + it.qty + ' — ' + formatPrice(p.price * it.qty));
+    if (p.image) {
+      /* WhatsApp no permite adjuntar fotos desde un enlace; se envía la
+         dirección pública de la foto y WhatsApp la muestra como vista previa */
+      lines.push('  Foto: ' + new URL(p.image, window.location.href).href);
+    }
   });
   lines.push('');
   lines.push('Total: ' + formatPrice(cartTotalPrice()));
