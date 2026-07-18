@@ -14,7 +14,7 @@ const CONFIG = {
   whatsappDisplay: "+57 313 477 9723",
 
   // Dirección del local
-  address: "Calle 54 #57-60, Medellín",
+  address: "Calle 54 #57-60, Centro Comercial Medellín, local 231",
 
   // Enlace a Google Maps con la dirección
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Calle+54+%2357-60+Medell%C3%ADn",
