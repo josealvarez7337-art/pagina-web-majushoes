@@ -460,6 +460,11 @@ footer > .foot-grid p{font-size:0.88rem; color:var(--gray); margin-top:14px; lin
 .size-guide-box{padding:34px 30px;}
 .size-guide-box h3{font-size:1.3rem; margin-bottom:6px;}
 .size-guide-box .note{font-size:0.82rem; color:var(--gray); margin-bottom:20px; line-height:1.5;}
+.size-table-title{
+  font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  margin-bottom:8px;
+}
+.size-table-wrap + .size-table-title{margin-top:20px;}
 .size-table{width:100%; border-collapse:collapse; font-size:0.88rem;}
 .size-table th{
   background:var(--black); color:var(--white); padding:10px 8px;
