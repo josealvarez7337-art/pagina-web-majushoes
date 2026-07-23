@@ -14,7 +14,7 @@ o publicarla en GitHub Pages.
   pagos (Wompi, Mercado Pago, etc.), solo hay que reemplazar la función
   `checkout()` marcada en `js/app.js`.
 - **Guía de tallas**, **preguntas frecuentes**, sección **Nosotros**, opciones de
-  **envío/recogida** y datos de **contacto**.
+  **envío** y datos de **contacto**.
 - Diseño adaptable a celular, con menú móvil y botón flotante de WhatsApp.
 
 ## Cómo editar la información
