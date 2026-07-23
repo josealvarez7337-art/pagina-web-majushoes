@@ -25,7 +25,7 @@ const PRODUCTS = [
     name: "Nike DN",
     category: "tenis",
     gender: "Unisex",
-    price: 140000,
+    price: 175000,
     sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     tag: "Nuevo",
     art: "runner",
