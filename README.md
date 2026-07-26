@@ -43,6 +43,17 @@ o publicarla en GitHub Pages.
 3. Guarda: en unos minutos la página queda disponible en
    `https://<tu-usuario>.github.io/pagina-web-majushoes/`.
 
+## Propuesta comercial
+
+En `propuesta.html` está la propuesta comercial para presentarle al cliente:
+página gratis + 2 meses de administración gratis + plan mensual desde el mes 3.
+No está enlazada desde la tienda (es un documento aparte). Ábrela en el navegador
+y usa el botón **"Imprimir / guardar PDF"** para generar el PDF.
+
+> Los precios de los planes ($120.000 / $200.000 / $300.000) son **sugeridos**:
+> edítalos en `propuesta.html`, en la sección marcada con el comentario
+> `EDITA AQUÍ LOS PRECIOS`.
+
 ## Pagos en línea (pendiente de decisión)
 
 El botón "Finalizar pedido" hoy genera el mensaje de WhatsApp. Si más adelante se

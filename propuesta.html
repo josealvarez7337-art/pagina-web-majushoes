@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta comercial — Página web Maju Shoes</title>
+<meta name="description" content="Propuesta comercial: creación y administración de la página web de Maju Shoes.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --paper:#F7F4F1;
+    --red:#D91C2B;
+    --red-dark:#A3121D;
+    --black:#151110;
+    --gray:#5B554E;
+    --line:rgba(21,17,16,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--black);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    line-height:1.15;
+  }
+  .eyebrow{
+    font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--red); font-weight:700; margin-bottom:6px;
+  }
+  .stripe{
+    height:26px; width:100%;
+    background:linear-gradient(100deg, transparent 0 42%, var(--red) 42% 46%, transparent 46% 100%);
+  }
+  .sheet{
+    max-width:860px; margin:0 auto; background:var(--white);
+    box-shadow:0 10px 40px rgba(21,17,16,0.10);
+  }
+  .pad{padding:40px 56px;}
+
+  /* ---------- Portada ---------- */
+  .cover{
+    border-bottom:2px solid var(--black);
+    display:flex; flex-direction:column; gap:28px;
+  }
+  .cover-top{display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .logo-img{height:110px; width:auto; display:block; mix-blend-mode:multiply;}
+  .cover-date{font-size:0.85rem; color:var(--gray); text-align:right;}
+  .cover h1{font-size:clamp(2rem, 5vw, 3.1rem);}
+  .cover h1 em{font-style:normal; color:var(--red);}
+  .cover-sub{color:var(--gray); max-width:560px;}
+  .cover-meta{
+    display:flex; flex-wrap:wrap; gap:28px; padding-top:18px;
+    border-top:1px solid var(--line); font-size:0.9rem;
+  }
+  .cover-meta b{display:block; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gray); font-weight:700; margin-bottom:2px;}
+
+  /* ---------- Secciones ---------- */
+  section{padding:36px 56px; border-bottom:1px solid var(--line);}
+  section h2{font-size:1.5rem; margin-bottom:14px;}
+  section > p{color:var(--gray); max-width:640px;}
+
+  /* ---------- Oferta en 3 pasos ---------- */
+  .offer-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px;}
+  .step{
+    border:2px solid var(--black); padding:20px 18px; background:var(--white);
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .step .n{
+    font-family:'Anton', sans-serif; font-size:1.6rem; color:var(--red);
+  }
+  .step h3{font-size:1rem;}
+  .step p{font-size:0.86rem; color:var(--gray);}
+  .free-tag{
+    display:inline-block; align-self:flex-start;
+    background:var(--red); color:var(--white);
+    font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    padding:3px 10px; border-radius:999px;
+  }
+  .price-anchor{
+    margin-top:20px; padding:16px 20px; background:var(--paper);
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:12px;
+  }
+  .price-anchor .old{color:var(--gray); text-decoration:line-through; font-size:1.05rem;}
+  .price-anchor .new{font-family:'Anton', sans-serif; font-size:1.7rem; color:var(--red);}
+  .price-anchor span:last-child{font-size:0.85rem; color:var(--gray);}
+
+  /* ---------- Lista de lo que incluye ---------- */
+  .checks{list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; margin-top:18px;}
+  .checks li{display:flex; gap:10px; font-size:0.92rem; align-items:flex-start;}
+  .checks li::before{
+    content:"✓"; color:var(--red); font-weight:700; flex-shrink:0;
+    line-height:1.6;
+  }
+
+  /* ---------- Planes ---------- */
+  .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; align-items:stretch;}
+  .plan{
+    border:1.5px solid var(--line); background:var(--white); padding:22px 18px;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .plan.featured{border:2px solid var(--red); position:relative;}
+  .plan.featured::before{
+    content:"Recomendado";
+    position:absolute; top:-11px; left:50%; transform:translateX(-50%);
+    background:var(--red); color:var(--white);
+    font-size:0.64rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    padding:3px 12px; border-radius:999px; white-space:nowrap;
+  }
+  .plan h3{font-size:1.05rem;}
+  .plan .price{font-family:'Anton', sans-serif; font-size:1.55rem;}
+  .plan .price small{font-family:'Inter', sans-serif; font-size:0.72rem; color:var(--gray); font-weight:600;}
+  .plan ul{list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.83rem; color:var(--gray);}
+  .plan ul li{display:flex; gap:8px; align-items:flex-start;}
+  .plan ul li::before{content:"—"; color:var(--red); font-weight:700; flex-shrink:0;}
+  .plans-note{margin-top:16px; font-size:0.82rem; color:var(--gray);}
+
+  /* ---------- Cronología ---------- */
+  .timeline{list-style:none; margin-top:20px; display:flex; flex-direction:column; gap:0;}
+  .timeline li{
+    display:grid; grid-template-columns:130px 1fr; gap:18px;
+    padding:14px 0; border-bottom:1px dashed var(--line);
+  }
+  .timeline li:last-child{border-bottom:none;}
+  .timeline b{
+    font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase;
+    color:var(--red); font-size:0.95rem;
+  }
+  .timeline p{font-size:0.9rem; color:var(--gray);}
+
+  /* ---------- Condiciones ---------- */
+  .terms{list-style:none; margin-top:16px; display:flex; flex-direction:column; gap:10px;}
+  .terms li{position:relative; padding-left:18px; font-size:0.88rem; color:var(--gray);}
+  .terms li::before{content:"•"; color:var(--red); font-weight:700; position:absolute; left:0;}
+
+  /* ---------- Cierre / contacto ---------- */
+  .closing{border-bottom:none; display:flex; flex-direction:column; gap:18px;}
+  .contact-box{
+    background:var(--black); color:var(--white); padding:26px 28px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; align-items:center;
+  }
+  .contact-box h3{font-size:1.15rem; margin-bottom:4px;}
+  .contact-box p{font-size:0.88rem; color:rgba(255,255,255,0.75);}
+  .contact-box a{color:var(--white); font-weight:600; text-decoration:underline;}
+  .sign-row{
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:26px;
+  }
+  .sign{border-top:1.5px solid var(--black); padding-top:8px; font-size:0.8rem; color:var(--gray);}
+
+  /* ---------- Botón imprimir ---------- */
+  .print-bar{max-width:860px; margin:0 auto; padding:14px 0; display:flex; justify-content:flex-end;}
+  .btn-print{
+    font-family:'Inter', sans-serif; font-weight:600; font-size:0.85rem;
+    background:var(--black); color:var(--white); border:none; cursor:pointer;
+    padding:10px 22px; border-radius:999px;
+  }
+  .btn-print:hover{background:var(--red);}
+
+  @media (max-width:720px){
+    .pad, section{padding-left:22px; padding-right:22px;}
+    .offer-steps, .plans, .checks, .sign-row{grid-template-columns:1fr;}
+    .plan.featured{order:-1;}
+    .timeline li{grid-template-columns:1fr; gap:2px;}
+    .print-bar{padding-right:14px;}
+  }
+
+  @media print{
+    body{background:var(--white);}
+    .sheet{box-shadow:none; max-width:none;}
+    .print-bar{display:none;}
+    section{break-inside:avoid;}
+    a{text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  <button class="btn-print" onclick="window.print()">Imprimir / guardar PDF</button>
+</div>
+
+<div class="sheet">
+
+  <div class="stripe"></div>
+
+  <div class="cover pad">
+    <div class="cover-top">
+      <img class="logo-img" src="img/logo.jpeg" alt="Maju Shoes">
+      <div class="cover-date">Medellín, julio de 2026<br>Propuesta válida por 30 días</div>
+    </div>
+    <div>
+      <p class="eyebrow">Propuesta comercial</p>
+      <h1>Página web para<br><em>Maju Shoes</em></h1>
+    </div>
+    <p class="cover-sub">Creación, publicación y administración de la tienda en línea de Maju Shoes: un catálogo digital donde sus clientes ven los zapatos, arman el pedido y lo envían directo al WhatsApp del local.</p>
+    <div class="cover-meta">
+      <div><b>Preparada para</b>Maju Shoes<br>Calle 54 #57-60, C.C. Medellín, local 231</div>
+      <div><b>Presentada por</b>José Álvarez<br>josealvarez7337@gmail.com</div>
+    </div>
+  </div>
+
+  <section>
+    <p class="eyebrow">La oferta</p>
+    <h2>Tres pasos, sin riesgo</h2>
+    <p>La idea es simple: usted comprueba primero que la página le sirve al negocio, y solo después empieza a pagar.</p>
+    <div class="offer-steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>Entrega de la página</h3>
+        <span class="free-tag">Gratis</span>
+        <p>La página se diseña, se monta con su catálogo y se publica en internet sin ningún costo de creación.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>2 meses de administración</h3>
+        <span class="free-tag">Gratis</span>
+        <p>Durante los primeros dos meses administro la página sin costo: productos, precios, fotos y cualquier ajuste.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Plan mensual</h3>
+        <p>A partir del tercer mes, usted elige el plan de administración que más le convenga. Sin cláusulas de permanencia: puede cancelar cuando quiera.</p>
+      </div>
+    </div>
+    <div class="price-anchor">
+      <span class="old">Valor comercial del diseño y montaje: $1.200.000</span>
+      <span class="new">Hoy: $0</span>
+      <span>La página queda publicada y funcionando desde el primer día.</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">El producto</p>
+    <h2>Qué incluye la página web</h2>
+    <p>No es una página informativa cualquiera: es una tienda en línea pensada para cómo vende Maju Shoes hoy.</p>
+    <ul class="checks">
+      <li>Catálogo de productos con fotos, precios y tallas, con filtros por categoría y buscador.</li>
+      <li>Carrito de compras: el cliente elige talla y cantidad, y el pedido llega armado a su WhatsApp.</li>
+      <li>Botón flotante de WhatsApp en toda la página para resolver dudas al instante.</li>
+      <li>Guía de tallas de caballero y dama con equivalencias CO / US / EUR / cm.</li>
+      <li>Secciones de envíos, preguntas frecuentes, quiénes somos y contacto con mapa.</li>
+      <li>Diseño adaptado a celular, que es donde compran la mayoría de sus clientes.</li>
+      <li>Publicación en internet con dirección propia y hosting sin costo mensual.</li>
+      <li>Preparada para crecer: se le puede integrar pasarela de pagos (Nequi, PSE, tarjeta) cuando lo decida.</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">El servicio mensual</p>
+    <h2>Planes de administración</h2>
+    <p>Desde el tercer mes, la administración funciona con uno de estos planes. Todos incluyen mantener la página publicada, funcionando y con la información al día.</p>
+    <!-- ══════════════════════════════════════════════════════════
+         EDITA AQUÍ LOS PRECIOS: cambia los valores $ de cada plan
+         según lo que decidas cobrar. Son valores sugeridos.
+         ══════════════════════════════════════════════════════════ -->
+    <div class="plans">
+      <div class="plan">
+        <h3>Básico</h3>
+        <div class="price">$120.000 <small>/ mes</small></div>
+        <ul>
+          <li>Hasta 10 cambios de catálogo al mes (productos, precios, fotos, tallas).</li>
+          <li>Textos y datos de contacto siempre al día.</li>
+          <li>Página publicada, monitoreada y funcionando.</li>
+          <li>Soporte por WhatsApp en horario laboral.</li>
+        </ul>
+      </div>
+      <div class="plan featured">
+        <h3>Estándar</h3>
+        <div class="price">$200.000 <small>/ mes</small></div>
+        <ul>
+          <li>Cambios de catálogo ilimitados: novedades cada semana sin contar cambios.</li>
+          <li>Banners y promociones para fechas especiales (Madre, Padre, Navidad, rebajas).</li>
+          <li>Mejoras pequeñas de diseño y nuevas secciones cuando se necesiten.</li>
+          <li>Informe mensual sencillo: visitas y productos más consultados.</li>
+          <li>Soporte prioritario por WhatsApp.</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Completo</h3>
+        <div class="price">$300.000 <small>/ mes</small></div>
+        <ul>
+          <li>Todo lo del plan Estándar.</li>
+          <li>Edición y optimización de las fotos de producto.</li>
+          <li>Apoyo digital: enlazar el catálogo con Instagram y piezas para historias.</li>
+          <li>Acompañamiento para integrar la pasarela de pagos cuando lo decida.</li>
+          <li>Respuesta el mismo día.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="plans-note">Se puede cambiar de plan (subir o bajar) en cualquier momento, avisando antes del inicio del mes. Los precios son en pesos colombianos y no requieren contrato de permanencia.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Cómo funciona</p>
+    <h2>Cronología del acuerdo</h2>
+    <ul class="timeline">
+      <li>
+        <b>Semana 1</b>
+        <p>Se cargan los productos reales con sus fotos y precios, se revisan los textos con usted y la página queda publicada oficialmente.</p>
+      </li>
+      <li>
+        <b>Meses 1 y 2</b>
+        <p>Administración completa sin costo (equivalente al plan Estándar). Usted comparte el enlace con sus clientes y comprueba cómo llegan los pedidos por WhatsApp.</p>
+      </li>
+      <li>
+        <b>Fin del mes 2</b>
+        <p>Nos reunimos, miramos cómo le fue a la página y usted elige el plan mensual con el que quiere continuar.</p>
+      </li>
+      <li>
+        <b>Mes 3 en adelante</b>
+        <p>Administración con el plan elegido, pago mes a mes. Si en algún momento decide no continuar, la página es suya y no pierde nada de lo construido.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">Claridad ante todo</p>
+    <h2>Condiciones</h2>
+    <ul class="terms">
+      <li>La página web es propiedad de Maju Shoes. Si el servicio termina, usted conserva la página, su contenido y sus accesos.</li>
+      <li>El hosting (alojamiento) actual no tiene costo mensual. Si más adelante desea un dominio propio como <b>majushoes.com</b>, ese dominio cuesta aproximadamente $80.000 al año (se paga al proveedor del dominio, no a mí) y yo me encargo de configurarlo sin costo adicional.</li>
+      <li>La integración de una pasarela de pagos en línea (Wompi, Mercado Pago: Nequi, PSE, tarjeta) es un proyecto aparte que se cotiza cuando usted decida darle ese paso.</li>
+      <li>El pago mensual se hace dentro de los primeros 5 días de cada mes, por transferencia.</li>
+      <li>Sin permanencia: cualquiera de las dos partes puede terminar el acuerdo avisando con 15 días de anticipación.</li>
+    </ul>
+  </section>
+
+  <section class="closing">
+    <div class="contact-box">
+      <div>
+        <h3>¿Arrancamos?</h3>
+        <p>Cualquier duda sobre esta propuesta la resolvemos por WhatsApp o en persona.</p>
+      </div>
+      <div>
+        <p>José Álvarez<br><a href="mailto:josealvarez7337@gmail.com">josealvarez7337@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="sign-row">
+      <div class="sign">Acepta: Maju Shoes<br>Nombre, firma y fecha</div>
+      <div class="sign">Presenta: José Álvarez<br>Firma y fecha</div>
+    </div>
+  </section>
+
+  <div class="stripe"></div>
+
+</div>
+
+</body>
+</html>
