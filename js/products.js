@@ -1,20 +1,27 @@
 /* ============================================================
    CATÁLOGO DE PRODUCTOS — Maju Shoes
    ------------------------------------------------------------
-   DATOS DE MUESTRA: reemplaza nombres, precios y tallas por
-   los reales de la tienda. Cada producto es un objeto:
+   ORDEN: los productos de la misma marca van juntos. Al agregar
+   uno nuevo, ponlo al lado de los de su marca, no al final.
+   El orden de esta lista es el orden en que se ven en la página.
+
+   Para agregar un producto, copia un bloque y cambia los datos.
+   Cada producto es un objeto:
 
    {
      id:       texto único, sin espacios (se usa para el carrito)
      name:     nombre que ve el cliente
-     category: "tenis" | "botas" | "casual"   (etiqueta descriptiva)
      gender:   "Hombre" | "Mujer" | "Unisex"  (para los filtros;
                los Unisex aparecen al filtrar Hombre y también Mujer)
-     price:    precio en pesos, SIN puntos (259000 = $259.000)
-     sizes:    tallas disponibles
-     tag:      etiqueta opcional ("Nuevo", "Últimas tallas", ...) o ""
+     price:    precio en pesos, SIN puntos (175000 = $175.000)
+     sizes:    todas las tallas que maneja la referencia
+     soldOut:  tallas agotadas por el momento. Se siguen mostrando,
+               pero tachadas y sin poder agregarlas al carrito.
+               Déjalo como [] cuando haya de todas las tallas.
+     tag:      etiqueta ("Nuevo", "Últimas tallas", ...). Se deja
+               vacía ("") salvo que la tienda pida ponerla.
      art:      dibujo de muestra: "runner" | "boot" | "classic" | "slipon"
-     image:    RUTA A LA FOTO REAL, ej. "img/maju-runner.jpg".
+     image:    RUTA A LA FOTO REAL, ej. "img/nike-dn.jpeg".
                Mientras esté vacío ("") se muestra el dibujo de muestra.
    }
    ============================================================ */
@@ -23,154 +30,127 @@ const PRODUCTS = [
   {
     id: "nike-dn",
     name: "Nike DN",
-    category: "tenis",
     gender: "Unisex",
     price: 175000,
-    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
-    tag: "Nuevo",
+    sizes: [38, 39, 40, 41, 42, 43, 44],
+    soldOut: [38, 39, 41, 42, 43, 44],
+    tag: "",
     art: "runner",
     image: "img/nike-dn.jpeg",
   },
   {
-    id: "maju-runner",
-    name: "Maju Runner",
-    category: "tenis",
-    gender: "Unisex",
-    price: 259000,
-    sizes: [36, 37, 38, 39, 40, 41, 42, 43],
-    tag: "Nuevo",
-    art: "runner",
-    image: "",
-  },
-  {
-    id: "bota-urbana",
-    name: "Bota Urbana",
-    category: "botas",
+    id: "puma-gv-special",
+    name: "Puma GV Special",
     gender: "Hombre",
-    price: 329000,
-    sizes: [38, 39, 40, 41, 42, 43],
-    tag: "",
-    art: "boot",
-    image: "",
-  },
-  {
-    id: "clasico-blanco",
-    name: "Clásico Blanco",
-    category: "tenis",
-    gender: "Mujer",
-    price: 239000,
-    sizes: [35, 36, 37, 38],
-    tag: "Últimas tallas",
-    art: "classic",
-    image: "",
-  },
-  {
-    id: "slip-on-rojo",
-    name: "Slip-On Rojo",
-    category: "casual",
-    gender: "Unisex",
-    price: 199000,
-    sizes: [36, 37, 38, 39, 40, 41, 42],
-    tag: "",
-    art: "slipon",
-    image: "",
-  },
-  {
-    id: "maju-street",
-    name: "Maju Street",
-    category: "tenis",
-    gender: "Hombre",
-    price: 269000,
-    sizes: [39, 40, 41, 42, 43],
-    tag: "Nuevo",
-    art: "runner",
-    image: "",
-  },
-  {
-    id: "bota-trekking",
-    name: "Bota Trekking",
-    category: "botas",
-    gender: "Unisex",
-    price: 359000,
-    sizes: [37, 38, 39, 40, 41, 42, 43],
-    tag: "",
-    art: "boot",
-    image: "",
-  },
-  {
-    id: "casual-cuero-cafe",
-    name: "Casual Cuero Café",
-    category: "casual",
-    gender: "Hombre",
-    price: 289000,
-    sizes: [39, 40, 41, 42, 43],
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
     tag: "",
     art: "classic",
-    image: "",
+    image: "img/puma-gv-special.jpeg",
   },
   {
-    id: "tenis-chunky",
-    name: "Tenis Chunky",
-    category: "tenis",
-    gender: "Mujer",
-    price: 279000,
-    sizes: [35, 36, 37, 38, 39, 40],
-    tag: "Nuevo",
-    art: "runner",
-    image: "",
-  },
-  {
-    id: "mocasin-clasico",
-    name: "Mocasín Clásico",
-    category: "casual",
+    id: "skechers-dlux",
+    name: "Skechers D'Lux",
     gender: "Hombre",
-    price: 249000,
-    sizes: [39, 40, 41, 42, 43],
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
     tag: "",
-    art: "slipon",
-    image: "",
+    art: "runner",
+    image: "img/skechers-dlux.jpeg",
   },
   {
-    id: "bota-alta-negra",
-    name: "Bota Alta Negra",
-    category: "botas",
-    gender: "Mujer",
-    price: 349000,
-    sizes: [35, 36, 37, 38, 39],
+    /* Misma referencia que el anterior, en otro color (beige) */
+    id: "skechers-dlux-beige",
+    name: "Skechers D'Lux",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
     tag: "",
-    art: "boot",
-    image: "",
+    art: "runner",
+    image: "img/skechers-dlux-beige.jpeg",
   },
   {
-    id: "maju-court",
-    name: "Maju Court",
-    category: "tenis",
-    gender: "Unisex",
-    price: 229000,
-    sizes: [36, 37, 38, 39, 40, 41, 42],
+    id: "adidas-bounce",
+    name: "Adidas Bounce",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-bounce.jpeg",
+  },
+  {
+    id: "adidas-repetitor",
+    name: "Adidas Repetitor",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-repetitor.jpeg",
+  },
+  {
+    id: "adidas-terrex-blanco",
+    name: "Adidas Terrex",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-terrex-blanco.jpeg",
+  },
+  {
+    /* Misma referencia que el anterior, en otro color (beige) */
+    id: "adidas-terrex-beige",
+    name: "Adidas Terrex",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-terrex-beige.jpeg",
+  },
+  {
+    id: "bape",
+    name: "Bape",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
     tag: "",
     art: "classic",
-    image: "",
+    image: "img/bape.jpeg",
   },
   {
-    id: "sandalia-urbana",
-    name: "Sandalia Urbana",
-    category: "casual",
-    gender: "Mujer",
-    price: 159000,
-    sizes: [35, 36, 37, 38],
-    tag: "Últimas tallas",
-    art: "slipon",
-    image: "",
+    id: "calvin-klein",
+    name: "Calvin Klein",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/calvin-klein.jpeg",
+  },
+  {
+    id: "new-balance-1906",
+    name: "New Balance 1906",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/new-balance-1906.jpeg",
   },
 ];
-
-/* Etiquetas descriptivas de las categorías (se muestran en cada producto) */
-const CATEGORIES = {
-  tenis: "Tenis",
-  botas: "Botas",
-  casual: "Casual",
-};
 
 /* Filtros del catálogo */
 const FILTERS = {

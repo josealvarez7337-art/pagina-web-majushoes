@@ -6,9 +6,11 @@ o publicarla en GitHub Pages.
 
 ## Qué incluye
 
-- **Catálogo** con filtros por categoría (Tenis, Botas, Casual) y buscador.
+- **Catálogo** con filtro por género (Todos, Hombre, Mujer) y buscador.
 - **Carrito de compras** con selección de talla y cantidades. Se guarda en el
   navegador del cliente, así no se pierde si cierra la página.
+- **Control de agotados**: las tallas sin existencias se muestran tachadas y no
+  se pueden agregar al carrito.
 - **Pedido por WhatsApp** (provisional): al finalizar el pedido se abre WhatsApp
   con el detalle del carrito ya escrito. Cuando se decida integrar una pasarela de
   pagos (Wompi, Mercado Pago, etc.), solo hay que reemplazar la función
@@ -26,15 +28,27 @@ o publicarla en GitHub Pages.
 | Textos de las secciones (hero, nosotros, preguntas) | `index.html` |
 | Colores y estilos | `css/styles.css` (variables al inicio) |
 
-### Agregar las fotos reales de los productos
+### Agregar un producto
 
-1. Crea una carpeta `img/` y guarda ahí las fotos (idealmente cuadradas, mínimo 800×800).
-2. En `js/products.js`, escribe la ruta en el campo `image` del producto,
-   por ejemplo: `image: "img/maju-runner.jpg"`.
-3. Mientras `image` esté vacío (`""`), se muestra un dibujo de muestra.
+1. Guarda la foto en la carpeta `img/` (idealmente cuadrada, mínimo 800×800).
+2. En `js/products.js`, copia un bloque de producto y cambia los datos.
+   Escribe la ruta de la foto en el campo `image`, por ejemplo:
+   `image: "img/puma-gv-special.jpeg"`.
+3. Ponlo **al lado de los productos de la misma marca**: el orden de la lista
+   es el orden en que se ven en la página.
+4. Mientras `image` esté vacío (`""`), se muestra un dibujo de muestra.
 
-> **Nota:** los productos actuales son **datos de muestra**; reemplázalos por los
-> reales antes de publicar la página a clientes.
+### Marcar una talla como agotada
+
+No borres la talla de `sizes`. Agrégala al campo `soldOut` del producto:
+
+```js
+sizes:   [38, 39, 40, 41, 42, 43, 44],
+soldOut: [38, 39, 41, 42, 43, 44],   // solo queda la 40
+```
+
+Así el cliente ve que la tienda sí maneja esa talla, pero le aparece tachada y
+no la puede pedir. Cuando vuelva a llegar, se saca de `soldOut`.
 
 ## Cómo publicarla gratis con GitHub Pages
 
