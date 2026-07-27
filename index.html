@@ -10,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<!-- ?v= fuerza a los navegadores a bajar el CSS nuevo en vez de usar el de caché.
+     Sube el número cada vez que cambies styles.css. -->
+<link rel="stylesheet" href="css/styles.css?v=2">
 </head>
 <body>
 
@@ -268,7 +270,10 @@
   <div class="modal-box">
     <button class="close-x modal-close" data-close-modal aria-label="Cerrar">×</button>
     <div class="size-guide-box">
+      <!-- El tamaño va también en línea: si un navegador sirve un styles.css viejo
+           desde caché, la foto igual se ajusta al modal en vez de desbordarlo. -->
       <img class="size-guide-img" src="img/guia-tallas.jpeg" width="1024" height="1536"
+           style="display:block; width:100%; height:auto;"
            alt="Guía de tallas Maju Shoes: equivalencias CO, US, EUR y CM para caballero y dama.">
     </div>
   </div>
