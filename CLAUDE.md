@@ -52,6 +52,14 @@ agregar al carrito.
 Van en `img/` con el nombre del producto en minúsculas y guiones
 (`img/puma-gv-special.jpeg`), y se enlazan en el campo `image`.
 
+## Subir el `?v=` al publicar
+
+`index.html` enlaza el CSS y los tres JS con `?v=N`. **Cada vez que se cambie
+`products.js`, `config.js`, `app.js` o `styles.css` hay que subir ese número
+en los cuatro enlaces.** Si no, el navegador de quien ya visitó la página
+reutiliza los archivos viejos y el dueño ve el catálogo anterior aunque
+GitHub Pages ya haya publicado bien.
+
 ## Antes de dar por terminado un cambio del catálogo
 
 Revisar en el navegador que las tarjetas carguen, que ninguna foto salga
