@@ -31,6 +31,11 @@ function getProduct(id) {
   return PRODUCTS.find(function (p) { return p.id === id; });
 }
 
+/* Una talla está agotada si aparece en el campo soldOut del producto */
+function isSoldOut(p, size) {
+  return !!p.soldOut && p.soldOut.indexOf(size) !== -1;
+}
+
 /* ---------- Enlaces de contacto (desde js/config.js) ---------- */
 
 (function applyConfig() {
@@ -123,7 +128,7 @@ function matchesFilter(p) {
 function renderCatalog() {
   var term = searchTerm.trim().toLowerCase();
   var visible = PRODUCTS.filter(function (p) {
-    var haystack = (p.name + ' ' + CATEGORIES[p.category] + ' ' + p.gender).toLowerCase();
+    var haystack = (p.name + ' ' + p.gender).toLowerCase();
     var matchTerm = !term || haystack.indexOf(term) !== -1;
     return matchesFilter(p) && matchTerm;
   });
@@ -133,7 +138,7 @@ function renderCatalog() {
   if (!visible.length) {
     grid.innerHTML =
       '<div class="no-results"><b>Sin resultados</b>' +
-      'No encontramos referencias con esa búsqueda. Intenta con otra palabra o revisa todas las categorías.</div>';
+      'No encontramos referencias con esa búsqueda. Intenta con otra palabra o revisa todo el catálogo.</div>';
     return;
   }
 
@@ -148,7 +153,7 @@ function renderCatalog() {
       '</div>' +
       '<div class="card-body">' +
         '<h3>' + p.name + '</h3>' +
-        '<p class="cat">' + CATEGORIES[p.category] + ' · ' + p.gender + '</p>' +
+        '<p class="cat">' + p.gender + '</p>' +
         '<div class="card-foot">' +
           '<span class="price">' + formatPrice(p.price) + '</span>' +
           '<button class="add-btn" aria-label="Elegir talla de ' + p.name + '">+</button>' +
@@ -240,21 +245,34 @@ function openProductModal(id) {
 
   document.getElementById('pmMedia').innerHTML =
     (p.tag ? '<span class="card-tag">' + p.tag + '</span>' : '') + productMediaHTML(p);
-  document.getElementById('pmCategory').textContent = CATEGORIES[p.category];
   document.getElementById('pmName').textContent = p.name;
   document.getElementById('pmGender').textContent = p.gender;
   document.getElementById('pmPrice').textContent = formatPrice(p.price);
 
+  var addBtn = document.getElementById('pmAddBtn');
+  var hayTallas = p.sizes.some(function (s) { return !isSoldOut(p, s); });
+  addBtn.disabled = !hayTallas;
+
   var hint = document.getElementById('pmHint');
-  hint.textContent = 'Selecciona una talla para continuar.';
+  hint.textContent = hayTallas
+    ? 'Selecciona una talla para continuar.'
+    : 'Agotado por el momento. Escríbenos por WhatsApp y te avisamos cuando llegue.';
   hint.classList.remove('error');
 
   var sizesWrap = document.getElementById('pmSizes');
   sizesWrap.innerHTML = '';
   p.sizes.forEach(function (s) {
     var b = document.createElement('button');
-    b.className = 'size-btn';
+    var agotada = isSoldOut(p, s);
+    b.className = 'size-btn' + (agotada ? ' sold-out' : '');
     b.textContent = s;
+    if (agotada) {
+      b.disabled = true;
+      b.title = 'Talla ' + s + ' agotada';
+      b.setAttribute('aria-label', 'Talla ' + s + ' agotada');
+      sizesWrap.appendChild(b);
+      return;
+    }
     b.addEventListener('click', function () {
       selectedSize = s;
       sizesWrap.querySelectorAll('.size-btn').forEach(function (x) { x.classList.remove('selected'); });
@@ -288,7 +306,11 @@ var cart = [];
 try {
   cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
   if (!Array.isArray(cart)) cart = [];
-  cart = cart.filter(function (it) { return getProduct(it.id); });
+  /* Descarta lo que ya no existe o quedó agotado desde la última visita */
+  cart = cart.filter(function (it) {
+    var p = getProduct(it.id);
+    return p && p.sizes.indexOf(it.size) !== -1 && !isSoldOut(p, it.size);
+  });
 } catch (e) { cart = []; }
 
 function saveCart() {
@@ -372,7 +394,7 @@ function renderCart() {
       '<div class="cart-item-media">' + productMediaHTML(p) + '</div>' +
       '<div class="cart-item-info">' +
         '<h4>' + p.name + '</h4>' +
-        '<p class="meta">Talla ' + it.size + ' · ' + CATEGORIES[p.category] + '</p>' +
+        '<p class="meta">Talla ' + it.size + '</p>' +
         '<div class="cart-item-row">' +
           '<span class="qty-stepper">' +
             '<button data-minus aria-label="Restar una unidad">−</button>' +

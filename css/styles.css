@@ -453,6 +453,13 @@ footer > .foot-grid p{font-size:0.88rem; color:var(--gray); margin-top:14px; lin
 }
 .size-btn:hover{border-color:var(--red); color:var(--red);}
 .size-btn.selected{background:var(--black); color:var(--white); border-color:var(--black);}
+/* Talla agotada: se muestra, pero tachada y sin poder elegirse */
+.size-btn.sold-out{
+  border-color:#d5d5d5; color:#b0b0b0;
+  text-decoration:line-through; cursor:not-allowed;
+}
+.size-btn.sold-out:hover{border-color:#d5d5d5; color:#b0b0b0;}
+#pmAddBtn[disabled]{opacity:0.45; cursor:not-allowed;}
 .size-hint{font-size:0.78rem; color:var(--gray); margin-top:-14px; margin-bottom:18px;}
 .size-hint.error{color:var(--red); font-weight:600;}
 
