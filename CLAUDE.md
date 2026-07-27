@@ -1,0 +1,58 @@
+# Maju Shoes — notas para trabajar en este repositorio
+
+Sitio estático (HTML/CSS/JS sin framework ni build). Se prueba abriendo
+`index.html`; no hay dependencias que instalar.
+
+| Qué se edita | Archivo |
+|---|---|
+| Productos, precios, tallas, fotos | `js/products.js` |
+| WhatsApp, dirección, Instagram | `js/config.js` |
+| Textos de las secciones | `index.html` |
+| Estilos | `css/styles.css` |
+
+## Reglas del catálogo
+
+Estas las pidió el dueño de la tienda. Respetarlas al agregar productos.
+
+### 1. Agrupar por marca
+
+Los productos de la misma marca o referencia van **juntos** en `PRODUCTS`.
+Al agregar uno nuevo, se inserta al lado de sus hermanos de marca, no al
+final de la lista.
+
+Ojo: el orden del arreglo es el orden en que se ven en la página, y
+`PRODUCTS[0]` además alimenta la foto y la etiqueta del hero. No reordenar
+el catálogo completo sin avisar, porque cambia la foto principal del sitio.
+
+### 2. Nombres repetidos: preguntar, no corregir solo
+
+Si dos productos parecen ser la misma referencia pero con el nombre escrito
+distinto (mayúsculas, tildes, abreviaturas, "D'Lux" vs "Dlux"), **avisarle
+al dueño y preguntarle cuál nombre queda**. No unificar por cuenta propia.
+
+### 3. Etiquetas solo si las piden
+
+El campo `tag` ("Nuevo", "Últimas tallas", ...) se deja vacío salvo que el
+dueño lo pida explícitamente para ese producto.
+
+### 4. Valores por defecto de la mercancía
+
+Salvo que digan otra cosa: género `Hombre`, tallas `[40, 41, 42, 43, 44]`,
+precio `175000`.
+
+### 5. Tallas agotadas
+
+No se borran del arreglo `sizes`: se agregan al arreglo `soldOut` del
+producto. Así el cliente ve que la tienda maneja esa talla, pero no puede
+comprarla. Si todas quedan agotadas, la ficha deshabilita sola el botón de
+agregar al carrito.
+
+## Fotos
+
+Van en `img/` con el nombre del producto en minúsculas y guiones
+(`img/puma-gv-special.jpeg`), y se enlazan en el campo `image`.
+
+## Antes de dar por terminado un cambio del catálogo
+
+Revisar en el navegador que las tarjetas carguen, que ninguna foto salga
+rota y que el modal de tallas y el carrito funcionen.

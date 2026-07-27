@@ -1,6 +1,10 @@
 /* ============================================================
    CATÁLOGO DE PRODUCTOS — Maju Shoes
    ------------------------------------------------------------
+   ORDEN: los productos de la misma marca van juntos. Al agregar
+   uno nuevo, ponlo al lado de los de su marca, no al final.
+   El orden de esta lista es el orden en que se ven en la página.
+
    Para agregar un producto, copia un bloque y cambia los datos.
    Cada producto es un objeto:
 
