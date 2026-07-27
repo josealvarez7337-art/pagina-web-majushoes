@@ -122,8 +122,9 @@
   .plan .price{font-family:'Anton', sans-serif; font-size:1.55rem;}
   .plan .price small{font-family:'Inter', sans-serif; font-size:0.72rem; color:var(--gray); font-weight:600;}
   .plan ul{list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.83rem; color:var(--gray);}
-  .plan ul li{display:flex; gap:8px; align-items:flex-start;}
-  .plan ul li::before{content:"—"; color:var(--red); font-weight:700; flex-shrink:0;}
+  .plan ul li{position:relative; padding-left:18px;}
+  .plan ul li::before{content:"—"; color:var(--red); font-weight:700; position:absolute; left:0;}
+  .plan ul li b{color:var(--black);}
   .plans-note{margin-top:16px; font-size:0.82rem; color:var(--gray);}
 
   /* ---------- Cronología ---------- */
@@ -225,7 +226,7 @@
         <span class="n">2</span>
         <h3>2 meses de administración</h3>
         <span class="free-tag">Gratis</span>
-        <p>Durante los primeros dos meses administro la página sin costo: productos, precios, fotos y cualquier ajuste.</p>
+        <p>Durante los primeros dos meses administro la página sin costo —productos, precios, fotos y ajustes— y le doy apoyo respondiendo mensajes en Instagram y Facebook.</p>
       </div>
       <div class="step">
         <span class="n">3</span>
@@ -234,9 +235,9 @@
       </div>
     </div>
     <div class="price-anchor">
-      <span class="old">Valor comercial del diseño y montaje: $1.200.000</span>
+      <span class="old">Diseño y montaje $1.200.000 + 2 meses de administración $600.000</span>
       <span class="new">Hoy: $0</span>
-      <span>La página queda publicada y funcionando desde el primer día.</span>
+      <span>$1.800.000 en valor, sin costo. La página queda publicada y funcionando desde el primer día.</span>
     </div>
   </section>
 
@@ -266,39 +267,45 @@
          ══════════════════════════════════════════════════════════ -->
     <div class="plans">
       <div class="plan">
-        <h3>Básico</h3>
-        <div class="price">$120.000 <small>/ mes</small></div>
+        <h3>Solo web</h3>
+        <div class="price">$180.000 <small>/ mes</small></div>
         <ul>
           <li>Hasta 10 cambios de catálogo al mes (productos, precios, fotos, tallas).</li>
           <li>Textos y datos de contacto siempre al día.</li>
           <li>Página publicada, monitoreada y funcionando.</li>
-          <li>Soporte por WhatsApp en horario laboral.</li>
+          <li>Respuesta en menos de 24 horas, de lunes a sábado.</li>
+          <li>No incluye apoyo en redes sociales.</li>
         </ul>
       </div>
       <div class="plan featured">
-        <h3>Estándar</h3>
-        <div class="price">$200.000 <small>/ mes</small></div>
+        <h3>Web + Redes</h3>
+        <div class="price">$300.000 <small>/ mes</small></div>
         <ul>
-          <li>Cambios de catálogo ilimitados: novedades cada semana sin contar cambios.</li>
+          <li>Cambios de catálogo <b>ilimitados</b>: novedades cada semana sin contar cambios.</li>
+          <li><b>Apoyo en Instagram y Facebook:</b> respondemos los mensajes entre los dos, para que ningún cliente se quede esperando.</li>
           <li>Banners y promociones para fechas especiales (Madre, Padre, Navidad, rebajas).</li>
-          <li>Mejoras pequeñas de diseño y nuevas secciones cuando se necesiten.</li>
+          <li>Mejoras de diseño y nuevas secciones cuando se necesiten.</li>
           <li>Informe mensual sencillo: visitas y productos más consultados.</li>
-          <li>Soporte prioritario por WhatsApp.</li>
+          <li><b>Respuesta en menos de 4 horas, los 7 días de la semana.</b></li>
         </ul>
       </div>
       <div class="plan">
         <h3>Completo</h3>
-        <div class="price">$300.000 <small>/ mes</small></div>
+        <div class="price">$450.000 <small>/ mes</small></div>
         <ul>
-          <li>Todo lo del plan Estándar.</li>
+          <li>Todo lo del plan Web + Redes.</li>
+          <li>Contenido para redes: piezas e historias con los productos del catálogo.</li>
           <li>Edición y optimización de las fotos de producto.</li>
-          <li>Apoyo digital: enlazar el catálogo con Instagram y piezas para historias.</li>
           <li>Acompañamiento para integrar la pasarela de pagos cuando lo decida.</li>
-          <li>Respuesta el mismo día.</li>
+          <li>Respuesta prioritaria el mismo día.</li>
         </ul>
       </div>
     </div>
     <p class="plans-note">Se puede cambiar de plan (subir o bajar) en cualquier momento, avisando antes del inicio del mes. Los precios son en pesos colombianos y no requieren contrato de permanencia.</p>
+    <div class="price-anchor">
+      <span class="new">Se paga con 1 par</span>
+      <span>Con una sola venta al mes generada por la página, el plan ya está cubierto. De ahí en adelante, todo lo que entre por la web es ganancia.</span>
+    </div>
   </section>
 
   <section>
@@ -311,7 +318,7 @@
       </li>
       <li>
         <b>Meses 1 y 2</b>
-        <p>Administración completa sin costo (equivalente al plan Estándar). Usted comparte el enlace con sus clientes y comprueba cómo llegan los pedidos por WhatsApp.</p>
+        <p>Administración completa sin costo (equivalente al plan Web + Redes). Usted comparte el enlace con sus clientes y comprueba cómo llegan los pedidos por WhatsApp.</p>
       </li>
       <li>
         <b>Fin del mes 2</b>
@@ -330,8 +337,10 @@
     <ul class="terms">
       <li>La página web es propiedad de Maju Shoes. Si el servicio termina, usted conserva la página, su contenido y sus accesos.</li>
       <li>El hosting (alojamiento) actual no tiene costo mensual. Si más adelante desea un dominio propio como <b>majushoes.com</b>, ese dominio cuesta aproximadamente $80.000 al año (se paga al proveedor del dominio, no a mí) y yo me encargo de configurarlo sin costo adicional.</li>
+      <li><b>Sobre las redes sociales:</b> las cuentas de Instagram y Facebook siguen siendo suyas y usted las sigue manejando. Mi apoyo es responder mensajes y comentarios para que ningún cliente quede sin respuesta —trabajamos las dos partes sobre las mismas cuentas—. La creación de contenido y las publicaciones solo están incluidas en el plan Completo.</li>
       <li>La integración de una pasarela de pagos en línea (Wompi, Mercado Pago: Nequi, PSE, tarjeta) es un proyecto aparte que se cotiza cuando usted decida darle ese paso.</li>
       <li>El pago mensual se hace dentro de los primeros 5 días de cada mes, por transferencia.</li>
+      <li>El valor del plan se mantiene fijo durante el primer año. A partir del segundo año se ajusta según el IPC del año anterior.</li>
       <li>Sin permanencia: cualquiera de las dos partes puede terminar el acuerdo avisando con 15 días de anticipación.</li>
     </ul>
   </section>

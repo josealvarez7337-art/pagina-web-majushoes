@@ -50,7 +50,7 @@ página gratis + 2 meses de administración gratis + plan mensual desde el mes 3
 No está enlazada desde la tienda (es un documento aparte). Ábrela en el navegador
 y usa el botón **"Imprimir / guardar PDF"** para generar el PDF.
 
-> Los precios de los planes ($120.000 / $200.000 / $300.000) son **sugeridos**:
+> Los precios de los planes ($180.000 / $300.000 / $450.000) son **sugeridos**:
 > edítalos en `propuesta.html`, en la sección marcada con el comentario
 > `EDITA AQUÍ LOS PRECIOS`.
 
