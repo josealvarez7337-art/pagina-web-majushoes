@@ -10,9 +10,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- ?v= fuerza a los navegadores a bajar el CSS nuevo en vez de usar el de caché.
-     Sube el número cada vez que cambies styles.css. -->
-<link rel="stylesheet" href="css/styles.css?v=2">
+<!-- ?v= fuerza a los navegadores a bajar el archivo nuevo en vez de usar el de
+     caché. SUBE EL NÚMERO EN LOS CUATRO ENLACES (aquí y en los tres <script>
+     del final) cada vez que cambies el catálogo, los estilos o la configuración.
+     Si no se sube, el cliente que ya visitó la página sigue viendo la versión
+     vieja aunque el sitio ya esté publicado. -->
+<link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
 
@@ -278,8 +281,9 @@
   </div>
 </div>
 
-<script src="js/config.js"></script>
-<script src="js/products.js"></script>
-<script src="js/app.js"></script>
+<!-- El ?v= debe coincidir con el del CSS de arriba. Ver la nota del <head>. -->
+<script src="js/config.js?v=3"></script>
+<script src="js/products.js?v=3"></script>
+<script src="js/app.js?v=3"></script>
 </body>
 </html>
