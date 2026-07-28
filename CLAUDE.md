@@ -40,7 +40,17 @@ dueño lo pida explícitamente para ese producto.
 Salvo que digan otra cosa: género `Hombre`, tallas `[40, 41, 42, 43, 44]`,
 precio `175000`.
 
-### 5. Tallas agotadas
+### 5. Unisex significa que sale en los tres filtros
+
+Cuando el dueño diga que un zapato es unisex, el producto va con
+`gender: "Unisex"`. Con ese valor la ficha aparece en **Todos, en Hombre y
+en Mujer** a la vez, y la tarjeta muestra "Unisex" debajo del nombre.
+
+No hay que duplicar el producto ni crear un filtro nuevo: la función
+`matchesFilter()` de `app.js` ya trata los Unisex como parte de las dos
+listas.
+
+### 6. Tallas agotadas
 
 No se borran del arreglo `sizes`: se agregan al arreglo `soldOut` del
 producto. Así el cliente ve que la tienda maneja esa talla, pero no puede
