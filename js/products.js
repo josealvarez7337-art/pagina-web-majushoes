@@ -221,6 +221,18 @@ const PRODUCTS = [
     image: "img/michael-kors.jpeg",
   },
   {
+    /* Misma marca, en cuero negro con suela blanca */
+    id: "michael-kors-negro",
+    name: "Michael Kors",
+    gender: "Unisex",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/michael-kors-negro.jpeg",
+  },
+  {
     id: "clemont",
     name: "Clemont",
     gender: "Unisex",
@@ -232,6 +244,18 @@ const PRODUCTS = [
     image: "img/clemont.jpeg",
   },
   {
+    /* Misma referencia que el anterior, con suela blanca */
+    id: "clemont-blanco",
+    name: "Clemont",
+    gender: "Unisex",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/clemont-blanco.jpeg",
+  },
+  {
     id: "coach",
     name: "Coach",
     gender: "Unisex",
@@ -241,6 +265,18 @@ const PRODUCTS = [
     tag: "",
     art: "classic",
     image: "img/coach.jpeg",
+  },
+  {
+    /* Misma marca, todo negro con monograma */
+    id: "coach-negro",
+    name: "Coach",
+    gender: "Unisex",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/coach-negro.jpeg",
   },
   {
     id: "boss-negro",
@@ -264,6 +300,29 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/boss-monograma.jpeg",
+  },
+  {
+    id: "oakley-blanco",
+    name: "Oakley",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/oakley-blanco.jpeg",
+  },
+  {
+    /* Misma referencia que el anterior, todo negro */
+    id: "oakley-negro",
+    name: "Oakley",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/oakley-negro.jpeg",
   },
 ];
 
