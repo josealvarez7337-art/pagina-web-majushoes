@@ -200,7 +200,7 @@ const PRODUCTS = [
   {
     id: "michael-kors",
     name: "Michael Kors",
-    gender: "Hombre",
+    gender: "Unisex",
     price: 175000,
     sizes: [40, 41, 42, 43, 44],
     soldOut: [],
