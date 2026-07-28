@@ -35,10 +35,17 @@ al dueño y preguntarle cuál nombre queda**. No unificar por cuenta propia.
 El campo `tag` ("Nuevo", "Últimas tallas", ...) se deja vacío salvo que el
 dueño lo pida explícitamente para ese producto.
 
-### 4. Valores por defecto de la mercancía
+### 4. Género, tallas y precio: preguntarlos en cada tanda
 
-Salvo que digan otra cosa: género `Hombre`, tallas `[40, 41, 42, 43, 44]`,
-precio `175000`.
+**No hay valores por defecto fijos para todo el catálogo.**
+
+El dueño manda los zapatos por tandas, y cuando toda una tanda comparte las
+mismas características lo dice una sola vez al principio en vez de repetirlo
+producto por producto. La tanda de julio de 2026 fue toda `Hombre`, tallas
+`[40, 41, 42, 43, 44]` y precio `175000`.
+
+Eso valía para esa tanda, no para siempre. Al empezar una tanda nueva hay
+que preguntarle género, tallas y precio; no asumir los de la vez pasada.
 
 ### 5. Unisex significa que sale en los tres filtros
 
