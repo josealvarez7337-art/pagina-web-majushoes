@@ -141,15 +141,15 @@ const PRODUCTS = [
     image: "img/nike-air-force-one.jpeg",
   },
   {
-    id: "nike-sb-jarrito",
-    name: "Nike SB Jarrito",
+    id: "nike-sb-jarritos",
+    name: "Nike SB Jarritos",
     gender: "Hombre",
     price: 175000,
     sizes: [40, 41, 42, 43, 44],
     soldOut: [],
     tag: "",
     art: "classic",
-    image: "img/nike-sb-jarrito.jpeg",
+    image: "img/nike-sb-jarritos.jpeg",
   },
   {
     id: "nike-free",
