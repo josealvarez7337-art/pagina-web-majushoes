@@ -30,6 +30,14 @@ Si dos productos parecen ser la misma referencia pero con el nombre escrito
 distinto (mayúsculas, tildes, abreviaturas, "D'Lux" vs "Dlux"), **avisarle
 al dueño y preguntarle cuál nombre queda**. No unificar por cuenta propia.
 
+Ya preguntado y resuelto: **Nike TN y Nike Air Max Plus son referencias
+distintas para la tienda**, aunque de fábrica sean el mismo modelo. Van
+separadas y no hay que volver a proponer unirlas.
+
+Al revés también: si una foto nueva es la misma de un producto que ya está
+en el catálogo, avisar antes de agregarla en vez de crear una tarjeta
+repetida.
+
 ### 3. Etiquetas solo si las piden
 
 El campo `tag` ("Nuevo", "Últimas tallas", ...) se deja vacío salvo que el
