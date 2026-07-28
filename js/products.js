@@ -39,6 +39,29 @@ const PRODUCTS = [
     image: "img/nike-dn.jpeg",
   },
   {
+    id: "nike-tn-negro",
+    name: "Nike TN",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-tn-negro.jpeg",
+  },
+  {
+    /* Misma referencia que el anterior, en otro color (blanco) */
+    id: "nike-tn-blanco",
+    name: "Nike TN",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-tn-blanco.jpeg",
+  },
+  {
     id: "puma-gv-special",
     name: "Puma GV Special",
     gender: "Hombre",
@@ -118,6 +141,30 @@ const PRODUCTS = [
     image: "img/adidas-terrex-beige.jpeg",
   },
   {
+    /* Misma referencia, en negro con suela blanca */
+    id: "adidas-terrex-negro",
+    name: "Adidas Terrex",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-terrex-negro.jpeg",
+  },
+  {
+    /* Misma referencia, en negro con suela gris y cordones naranjas */
+    id: "adidas-terrex-gris",
+    name: "Adidas Terrex",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-terrex-gris.jpeg",
+  },
+  {
     id: "bape",
     name: "Bape",
     gender: "Hombre",
@@ -149,6 +196,17 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/new-balance-1906.jpeg",
+  },
+  {
+    id: "michael-kors",
+    name: "Michael Kors",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/michael-kors.jpeg",
   },
 ];
 
