@@ -30,7 +30,7 @@ const PRODUCTS = [
   {
     id: "nike-dn",
     name: "Nike DN",
-    gender: "Unisex",
+    gender: "Hombre",
     price: 175000,
     sizes: [38, 39, 40, 41, 42, 43, 44],
     soldOut: [38, 39, 41, 42, 43, 44],
