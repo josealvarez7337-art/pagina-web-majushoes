@@ -43,17 +43,26 @@ repetida.
 El campo `tag` ("Nuevo", "Últimas tallas", ...) se deja vacío salvo que el
 dueño lo pida explícitamente para ese producto.
 
-### 4. Género, tallas y precio: preguntarlos en cada tanda
+### 4. Las tallas salen del género; el precio se pregunta
 
-**No hay valores por defecto fijos para todo el catálogo.**
+Regla del dueño (agosto de 2026): **el género decide el rango de tallas.**
 
-El dueño manda los zapatos por tandas, y cuando toda una tanda comparte las
-mismas características lo dice una sola vez al principio en vez de repetirlo
-producto por producto. La tanda de julio de 2026 fue toda `Hombre`, tallas
-`[40, 41, 42, 43, 44]` y precio `175000`.
+| `gender` | `sizes` |
+|---|---|
+| `"Hombre"` | `[38, 39, 40, 41, 42, 43, 44]` |
+| `"Mujer"` | `[35, 36, 37, 38, 39]` |
+| `"Unisex"` | `[35, 36, 37, 38, 39, 40, 41, 42, 43, 44]` |
 
-Eso valía para esa tanda, no para siempre. Al empezar una tanda nueva hay
-que preguntarle género, tallas y precio; no asumir los de la vez pasada.
+Esto ya no se pregunta por tanda: sabiendo el género, las tallas salen solas.
+Todo el catálogo está aplicado a esta regla. Si el dueño pide un rango
+distinto para un producto puntual, se le hace caso a él y ya; pero no se
+cambia la tabla de arriba sin que lo pida.
+
+**El precio sí sigue sin valor por defecto.** El dueño manda los zapatos por
+tandas y cuando toda una tanda vale lo mismo lo dice una sola vez al principio
+en vez de repetirlo producto por producto (la tanda de julio de 2026 fue toda
+`175000`). Eso valía para esa tanda, no para siempre: al empezar una tanda
+nueva hay que preguntarle género y precio, y no asumir los de la vez pasada.
 
 ### 5. Unisex significa que sale en los tres filtros
 
