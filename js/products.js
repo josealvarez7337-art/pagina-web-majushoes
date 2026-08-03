@@ -14,7 +14,11 @@
      gender:   "Hombre" | "Mujer" | "Unisex"  (para los filtros;
                los Unisex aparecen al filtrar Hombre y también Mujer)
      price:    precio en pesos, SIN puntos (175000 = $175.000)
-     sizes:    todas las tallas que maneja la referencia
+     sizes:    todas las tallas que maneja la referencia. El rango lo
+               decide el género:
+                 Hombre -> [38, 39, 40, 41, 42, 43, 44]
+                 Mujer  -> [35, 36, 37, 38, 39]
+                 Unisex -> [35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
      soldOut:  tallas agotadas por el momento. Se siguen mostrando,
                pero tachadas y sin poder agregarlas al carrito.
                Déjalo como [] cuando haya de todas las tallas.
@@ -348,7 +352,7 @@ const PRODUCTS = [
     name: "Michael Kors",
     gender: "Unisex",
     price: 175000,
-    sizes: [38, 39, 40, 41, 42, 43, 44],
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     soldOut: [],
     tag: "",
     art: "classic",
@@ -360,7 +364,7 @@ const PRODUCTS = [
     name: "Michael Kors",
     gender: "Unisex",
     price: 175000,
-    sizes: [38, 39, 40, 41, 42, 43, 44],
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     soldOut: [],
     tag: "",
     art: "classic",
@@ -371,7 +375,7 @@ const PRODUCTS = [
     name: "Clemont",
     gender: "Unisex",
     price: 175000,
-    sizes: [38, 39, 40, 41, 42, 43, 44],
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     soldOut: [],
     tag: "",
     art: "classic",
@@ -383,7 +387,7 @@ const PRODUCTS = [
     name: "Clemont",
     gender: "Unisex",
     price: 175000,
-    sizes: [38, 39, 40, 41, 42, 43, 44],
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     soldOut: [],
     tag: "",
     art: "classic",
@@ -394,7 +398,7 @@ const PRODUCTS = [
     name: "Coach",
     gender: "Unisex",
     price: 175000,
-    sizes: [38, 39, 40, 41, 42, 43, 44],
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     soldOut: [],
     tag: "",
     art: "classic",
@@ -406,7 +410,7 @@ const PRODUCTS = [
     name: "Coach",
     gender: "Unisex",
     price: 175000,
-    sizes: [38, 39, 40, 41, 42, 43, 44],
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     soldOut: [],
     tag: "",
     art: "classic",
