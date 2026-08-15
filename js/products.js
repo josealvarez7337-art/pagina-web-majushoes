@@ -196,6 +196,18 @@ const PRODUCTS = [
     image: "img/jordan-11.jpeg",
   },
   {
+    /* Jordan 1 Mid, blanco con plateado metalizado */
+    id: "jordan-1",
+    name: "Jordan 1",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/jordan-1.jpeg",
+  },
+  {
     id: "puma-gv-special",
     name: "Puma GV Special",
     gender: "Hombre",
@@ -228,6 +240,18 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/skechers-dlux-beige.jpeg",
+  },
+  {
+    /* Blanco con franjas lila y detalles verde limón */
+    id: "adidas-adizero-evo-sl",
+    name: "Adidas Adizero Evo SL",
+    gender: "Unisex",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-adizero-evo-sl.jpeg",
   },
   {
     id: "adidas-bounce",
@@ -319,6 +343,30 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/calvin-klein.jpeg",
+  },
+  {
+    /* Plataforma, blanco con negro */
+    id: "calvin-klein-plataforma-negro",
+    name: "Calvin Klein",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/calvin-klein-plataforma-negro.jpeg",
+  },
+  {
+    /* Misma plataforma que el anterior, toda blanca */
+    id: "calvin-klein-plataforma-blanco",
+    name: "Calvin Klein",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/calvin-klein-plataforma-blanco.jpeg",
   },
   {
     id: "new-balance-1906",
