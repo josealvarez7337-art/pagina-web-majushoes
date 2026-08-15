@@ -98,6 +98,18 @@ const PRODUCTS = [
     image: "img/nike-tn-blanco-total.jpeg",
   },
   {
+    /* Misma referencia, blanco con rosado y turquesa */
+    id: "nike-tn-south-beach",
+    name: "Nike TN",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-tn-south-beach.jpeg",
+  },
+  {
     id: "nike-air-max-90",
     name: "Nike Air Max 90",
     gender: "Hombre",
@@ -222,6 +234,18 @@ const PRODUCTS = [
     image: "img/nike-p-6000.jpeg",
   },
   {
+    /* Misma referencia, toda blanca */
+    id: "nike-p-6000-blanco",
+    name: "Nike P-6000",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-p-6000-blanco.jpeg",
+  },
+  {
     id: "nike-shox",
     name: "Nike Shox",
     gender: "Hombre",
@@ -288,6 +312,18 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/skechers-dlux-beige.jpeg",
+  },
+  {
+    /* Negro con tres franjas blancas y suela blanca */
+    id: "adidas-supernova",
+    name: "Adidas Supernova",
+    gender: "Unisex",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-supernova.jpeg",
   },
   {
     /* Blanco con franjas lila y detalles verde limón */
@@ -415,6 +451,18 @@ const PRODUCTS = [
     tag: "",
     art: "classic",
     image: "img/calvin-klein-plataforma-blanco.jpeg",
+  },
+  {
+    /* Runner negro con monograma CK */
+    id: "calvin-klein-monograma",
+    name: "Calvin Klein",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/calvin-klein-monograma.jpeg",
   },
   {
     id: "new-balance-1906",
