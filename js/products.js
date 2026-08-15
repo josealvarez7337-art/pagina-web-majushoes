@@ -213,6 +213,18 @@ const PRODUCTS = [
     image: "img/nike-air-force-one-morado.jpeg",
   },
   {
+    /* Misma referencia, paloma rosada y suela celeste */
+    id: "nike-air-force-one-rosado",
+    name: "Nike Air Force One",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/nike-air-force-one-rosado.jpeg",
+  },
+  {
     id: "nike-sb-jarritos",
     name: "Nike SB Jarritos",
     gender: "Hombre",
@@ -422,6 +434,18 @@ const PRODUCTS = [
     tag: "",
     art: "classic",
     image: "img/jordan-1.jpeg",
+  },
+  {
+    /* Caña baja, blanco con gris y Jumpman dorado */
+    id: "jordan-1-low",
+    name: "Jordan 1",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/jordan-1-low.jpeg",
   },
   {
     id: "puma-gv-special",
@@ -642,6 +666,18 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/new-balance-1906-gris.jpeg",
+  },
+  {
+    /* Blanco con azul oscuro y plateado */
+    id: "new-balance-530",
+    name: "New Balance 530",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/new-balance-530.jpeg",
   },
   {
     id: "michael-kors",
