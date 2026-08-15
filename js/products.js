@@ -201,6 +201,18 @@ const PRODUCTS = [
     image: "img/nike-air-force-one.jpeg",
   },
   {
+    /* Misma referencia, blanco con paloma morada */
+    id: "nike-air-force-one-morado",
+    name: "Nike Air Force One",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/nike-air-force-one-morado.jpeg",
+  },
+  {
     id: "nike-sb-jarritos",
     name: "Nike SB Jarritos",
     gender: "Hombre",
@@ -339,6 +351,54 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/nike-shox.jpeg",
+  },
+  {
+    /* Misma referencia, lila con suela blanca */
+    id: "nike-shox-lila",
+    name: "Nike Shox",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-shox-lila.jpeg",
+  },
+  {
+    /* Misma referencia, coral con negro */
+    id: "nike-shox-coral",
+    name: "Nike Shox",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-shox-coral.jpeg",
+  },
+  {
+    /* Misma referencia, rojo con negro */
+    id: "nike-shox-rojo-negro",
+    name: "Nike Shox",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-shox-rojo-negro.jpeg",
+  },
+  {
+    /* Misma referencia, rojo completo */
+    id: "nike-shox-rojo",
+    name: "Nike Shox",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-shox-rojo.jpeg",
   },
   {
     id: "jordan-11",
