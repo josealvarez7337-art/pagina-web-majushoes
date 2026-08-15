@@ -86,6 +86,18 @@ const PRODUCTS = [
     image: "img/nike-tn-negro-total.jpeg",
   },
   {
+    /* Misma referencia, todo blanco */
+    id: "nike-tn-blanco-total",
+    name: "Nike TN",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-tn-blanco-total.jpeg",
+  },
+  {
     id: "nike-air-max-90",
     name: "Nike Air Max 90",
     gender: "Hombre",
@@ -119,6 +131,30 @@ const PRODUCTS = [
     image: "img/nike-air-max-moto-2k.jpeg",
   },
   {
+    /* Beige con gamuza gris y suela caramelo */
+    id: "nike-air-max-sc-beige",
+    name: "Nike Air Max SC",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-air-max-sc-beige.jpeg",
+  },
+  {
+    /* Misma referencia, blanco con rosado */
+    id: "nike-air-max-sc-rosado",
+    name: "Nike Air Max SC",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-air-max-sc-rosado.jpeg",
+  },
+  {
     id: "nike-air-max-plus",
     name: "Nike Air Max Plus",
     gender: "Hombre",
@@ -150,6 +186,18 @@ const PRODUCTS = [
     tag: "",
     art: "classic",
     image: "img/nike-sb-jarritos.jpeg",
+  },
+  {
+    /* Blanco con paloma negra y suela caramelo */
+    id: "nike-dunk-low",
+    name: "Nike Dunk Low",
+    gender: "Unisex",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/nike-dunk-low.jpeg",
   },
   {
     id: "nike-free",
@@ -459,6 +507,18 @@ const PRODUCTS = [
     tag: "",
     art: "classic",
     image: "img/coach-negro.jpeg",
+  },
+  {
+    /* Plataforma blanca, monograma negro charolado */
+    id: "coach-plataforma-negro",
+    name: "Coach",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/coach-plataforma-negro.jpeg",
   },
   {
     id: "boss-negro",
