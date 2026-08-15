@@ -110,6 +110,18 @@ const PRODUCTS = [
     image: "img/nike-tn-south-beach.jpeg",
   },
   {
+    /* Misma referencia, blanco con paloma rosada */
+    id: "nike-tn-blanco-rosado",
+    name: "Nike TN",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-tn-blanco-rosado.jpeg",
+  },
+  {
     id: "nike-air-max-90",
     name: "Nike Air Max 90",
     gender: "Hombre",
@@ -358,6 +370,18 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/adidas-repetitor.jpeg",
+  },
+  {
+    /* Misma referencia, negro con franjas y suela blancas */
+    id: "adidas-repetitor-blanco",
+    name: "Adidas Repetitor",
+    gender: "Unisex",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/adidas-repetitor-blanco.jpeg",
   },
   {
     id: "adidas-terrex-blanco",
