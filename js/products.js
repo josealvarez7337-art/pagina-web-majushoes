@@ -306,6 +306,18 @@ const PRODUCTS = [
     image: "img/nike-vomero-5-beige.jpeg",
   },
   {
+    /* Gris oscuro con suela crema */
+    id: "nike-v2k-run",
+    name: "Nike V2K Run",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [38, 39, 40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-v2k-run.jpeg",
+  },
+  {
     /* Blanco con café y paloma vinotinto */
     id: "nike-initiator",
     name: "Nike Initiator",
@@ -422,6 +434,18 @@ const PRODUCTS = [
     tag: "",
     art: "classic",
     image: "img/jordan-11.jpeg",
+  },
+  {
+    /* Misma referencia, negro con Jumpman turquesa y suela traslúcida */
+    id: "jordan-11-turquesa",
+    name: "Jordan 11",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [38, 39, 40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "boot",
+    image: "img/jordan-11-turquesa.jpeg",
   },
   {
     /* Jordan 1 Mid, blanco con plateado metalizado */
@@ -806,6 +830,18 @@ const PRODUCTS = [
     tag: "",
     art: "runner",
     image: "img/boss-malla.jpeg",
+  },
+  {
+    /* Cuero texturizado con suela negra y talón plateado */
+    id: "boss-suela-negra",
+    name: "Boss",
+    gender: "Hombre",
+    price: 175000,
+    sizes: [38, 39, 40, 41, 42, 43, 44],
+    soldOut: [],
+    tag: "",
+    art: "classic",
+    image: "img/boss-suela-negra.jpeg",
   },
   {
     id: "oakley-blanco",
