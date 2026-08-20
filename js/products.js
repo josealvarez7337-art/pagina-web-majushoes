@@ -402,6 +402,18 @@ const PRODUCTS = [
     image: "img/nike-zoom-blanco.jpeg",
   },
   {
+    /* Rosado con degradado naranja en la entresuela */
+    id: "nike-zoom-rosado",
+    name: "Nike Zoom",
+    gender: "Mujer",
+    price: 175000,
+    sizes: [35, 36, 37, 38, 39, 40],
+    soldOut: [],
+    tag: "",
+    art: "runner",
+    image: "img/nike-zoom-rosado.jpeg",
+  },
+  {
     /* Negro con suela blanca y la carita en el talón */
     id: "nike-carita",
     name: "Nike Carita",
