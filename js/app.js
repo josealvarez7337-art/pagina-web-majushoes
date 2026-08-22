@@ -6,6 +6,40 @@
 
 document.documentElement.classList.add('js');
 
+/* El catálogo se carga de data/products.json al abrir la página.
+   Arranca vacío y se llena en cargarCatalogo(), al final del archivo. */
+var PRODUCTS = [];
+
+/* Orden de las marcas en la página. Los productos se agrupan por
+   marca al mostrarlos, así que no importa en qué orden los cargue
+   la tienda. Una marca que no esté en esta lista va al final. */
+var ORDEN_MARCAS = [
+  'Nike', 'Jordan', 'Puma', 'Skechers', 'Adidas', 'Bape',
+  'Calvin Klein', 'New Balance', 'Michael Kors', 'Clemont',
+  'Coach', 'Boss', 'Oakley', 'Off White', 'Creative',
+];
+
+/* Tallas por género. La tienda maneja un solo rango por género, así
+   que no se guardan en cada producto: salen de aquí. Si alguna
+   referencia llegara a necesitar otras, se le pone su propio
+   arreglo "sizes" en el JSON y ese manda. */
+var TALLAS = {
+  Hombre: [38, 39, 40, 41, 42, 43, 44],
+  Mujer: [35, 36, 37, 38, 39, 40],
+  Unisex: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+};
+
+function sizesOf(p) {
+  return p.sizes || TALLAS[p.gender] || [];
+}
+
+/* Filtros del catálogo */
+var FILTERS = {
+  todos: 'Todos',
+  hombre: 'Hombre',
+  mujer: 'Mujer',
+};
+
 /* ---------- Utilidades ---------- */
 
 function formatPrice(n) {
@@ -60,27 +94,34 @@ function isSoldOut(p, size) {
     }
   }
 
-  /* Etiqueta flotante del hero: usa el primer producto del catálogo */
+})();
+
+/* ---------- Hero ----------
+   El producto de la portada es el que tenga hero: true en el JSON.
+   Si ninguno lo tiene, se usa el primero para no dejar el hueco. */
+
+function applyHero() {
+  var p = PRODUCTS.find(function (x) { return x.hero; }) || PRODUCTS[0];
+  if (!p) return;
+
   var heroTag = document.getElementById('heroTag');
-  if (heroTag && PRODUCTS.length) {
-    heroTag.textContent = PRODUCTS[0].name + ' — ' + formatPrice(PRODUCTS[0].price);
+  if (heroTag) {
+    heroTag.textContent = p.name + ' — ' + formatPrice(p.price);
   }
 
-  /* Imagen del hero: si el primer producto tiene foto real, reemplaza
-     el dibujo de muestra por esa foto */
   var heroArt = document.querySelector('.hero-art');
-  if (heroArt && PRODUCTS.length && PRODUCTS[0].image) {
+  if (heroArt && p.image) {
     var heroSvg = heroArt.querySelector('svg');
     if (heroSvg) {
       var heroImg = document.createElement('img');
-      heroImg.src = PRODUCTS[0].image;
-      heroImg.alt = PRODUCTS[0].name;
+      heroImg.src = p.image;
+      heroImg.alt = p.name;
       heroImg.className = 'hero-photo';
       heroSvg.replaceWith(heroImg);
       heroArt.classList.add('has-photo');
     }
   }
-})();
+}
 
 /* ---------- Aviso flotante (toast) ---------- */
 
@@ -128,10 +169,23 @@ function matchesFilter(p) {
 function renderCatalog() {
   var term = searchTerm.trim().toLowerCase();
   var visible = PRODUCTS.filter(function (p) {
-    var haystack = (p.name + ' ' + p.gender).toLowerCase();
+    var haystack = (p.name + ' ' + p.brand + ' ' + p.gender).toLowerCase();
     var matchTerm = !term || haystack.indexOf(term) !== -1;
     return matchesFilter(p) && matchTerm;
   });
+
+  /* Los de una misma marca van juntos, en el orden de ORDEN_MARCAS.
+     Dentro de cada marca se respeta el orden del JSON. */
+  visible = visible
+    .map(function (p, i) { return { p: p, i: i }; })
+    .sort(function (a, b) {
+      var ma = ORDEN_MARCAS.indexOf(a.p.brand);
+      var mb = ORDEN_MARCAS.indexOf(b.p.brand);
+      if (ma === -1) ma = ORDEN_MARCAS.length;
+      if (mb === -1) mb = ORDEN_MARCAS.length;
+      return ma - mb || a.i - b.i;
+    })
+    .map(function (x) { return x.p; });
 
   grid.innerHTML = '';
 
@@ -185,8 +239,35 @@ document.getElementById('searchBtn').addEventListener('click', function () {
   setTimeout(function () { document.getElementById('searchInput').focus({ preventScroll: true }); }, 450);
 });
 
-renderChips();
-renderCatalog();
+/* ---------- Carga del catálogo ----------
+   El catálogo vive en data/products.json, aparte del código, para que
+   la tienda pueda editarlo sin tocar JavaScript. Se pide con
+   cache: 'no-cache' para que el navegador siempre revalide: por eso
+   los cambios de productos ya no necesitan subir el ?v= del index. */
+
+function cargarCatalogo() {
+  grid.innerHTML = '<div class="no-results">Cargando el catálogo…</div>';
+
+  return fetch('data/products.json', { cache: 'no-cache' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      PRODUCTS = (data && data.products) || [];
+      renderChips();
+      renderCatalog();
+      applyHero();
+    })
+    .catch(function (err) {
+      console.error('No se pudo cargar data/products.json:', err);
+      grid.innerHTML =
+        '<div class="no-results"><b>No pudimos cargar el catálogo</b>' +
+        'Revisa tu conexión e intenta de nuevo en un momento.</div>';
+    });
+}
+
+cargarCatalogo();
 
 /* ---------- Capa oscura, modales y panel del carrito ---------- */
 
@@ -250,7 +331,7 @@ function openProductModal(id) {
   document.getElementById('pmPrice').textContent = formatPrice(p.price);
 
   var addBtn = document.getElementById('pmAddBtn');
-  var hayTallas = p.sizes.some(function (s) { return !isSoldOut(p, s); });
+  var hayTallas = sizesOf(p).some(function (s) { return !isSoldOut(p, s); });
   addBtn.disabled = !hayTallas;
 
   var hint = document.getElementById('pmHint');
@@ -261,7 +342,7 @@ function openProductModal(id) {
 
   var sizesWrap = document.getElementById('pmSizes');
   sizesWrap.innerHTML = '';
-  p.sizes.forEach(function (s) {
+  sizesOf(p).forEach(function (s) {
     var b = document.createElement('button');
     var agotada = isSoldOut(p, s);
     b.className = 'size-btn' + (agotada ? ' sold-out' : '');
@@ -309,7 +390,7 @@ try {
   /* Descarta lo que ya no existe o quedó agotado desde la última visita */
   cart = cart.filter(function (it) {
     var p = getProduct(it.id);
-    return p && p.sizes.indexOf(it.size) !== -1 && !isSoldOut(p, it.size);
+    return p && sizesOf(p).indexOf(it.size) !== -1 && !isSoldOut(p, it.size);
   });
 } catch (e) { cart = []; }
 
