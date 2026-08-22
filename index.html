@@ -11,11 +11,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- ?v= fuerza a los navegadores a bajar el archivo nuevo en vez de usar el de
-     caché. SUBE EL NÚMERO EN LOS CUATRO ENLACES (aquí y en los tres <script>
-     del final) cada vez que cambies el catálogo, los estilos o la configuración.
-     Si no se sube, el cliente que ya visitó la página sigue viendo la versión
-     vieja aunque el sitio ya esté publicado. -->
-<link rel="stylesheet" href="css/styles.css?v=17">
+     caché. SUBE EL NÚMERO EN LOS TRES ENLACES (aquí y en los dos <script> del
+     final) cada vez que cambies los estilos o el código.
+
+     Agregar, quitar o editar productos YA NO necesita subirlo: el catálogo
+     vive en data/products.json y se pide con cache: 'no-cache', así que el
+     navegador siempre trae la versión nueva. -->
+<link rel="stylesheet" href="css/styles.css?v=18">
 </head>
 <body>
 
@@ -282,8 +284,7 @@
 </div>
 
 <!-- El ?v= debe coincidir con el del CSS de arriba. Ver la nota del <head>. -->
-<script src="js/config.js?v=17"></script>
-<script src="js/products.js?v=17"></script>
-<script src="js/app.js?v=17"></script>
+<script src="js/config.js?v=18"></script>
+<script src="js/app.js?v=18"></script>
 </body>
 </html>
