@@ -122,6 +122,32 @@ Van en `img/` con el nombre del producto en minúsculas y guiones
 renombra un producto, se renombra también su foto para que sigan
 coincidiendo.
 
+### Se optimizan solas
+
+Cada vez que entra una foto a `img/` en `main`, la rutina
+`.github/workflows/optimizar-fotos.yml` la endereza si venía rotada, la
+achica si pasa de 1400 px de lado, la comprime y le quita los datos del
+celular (incluida la ubicación GPS). Guarda el resultado en un commit
+aparte.
+
+Sirve sobre todo para lo que suba la tienda desde el panel: una foto de
+celular llega de 3 MB y sale en unos 300 KB.
+
+Para correrla a mano:
+
+```bash
+python3 tools/optimizar-fotos.py            # optimiza
+python3 tools/optimizar-fotos.py --check    # solo avisa, no escribe
+```
+
+Solo recomprime cuando la ganancia vale la pena (25% y 60 KB mínimo), para
+no quitarle calidad a las fotos que ya están bien. Enderezar y achicar sí
+se hace siempre.
+
+**No toca** el logo, los iconos ni `guia-tallas.jpeg`: esa última es una
+tabla de números que quedaría ilegible, y su tamaño está escrito a mano en
+el `index.html`.
+
 ## Subir el `?v=` al publicar
 
 `index.html` enlaza el CSS y los dos JS con `?v=N`. **Cada vez que se

@@ -1,0 +1,48 @@
+# Deja listas las fotos que suba la tienda desde el panel.
+#
+# Una foto sacada del celular llega de 3 MB y 4000 px. Sin esto, la clienta
+# que entra con datos móviles se descarga todo eso para ver una tarjeta de
+# 300 px. Esta rutina la endereza, la achica y la comprime sola, y guarda el
+# resultado en el repositorio.
+
+name: Optimizar fotos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'img/**'
+      - 'tools/optimizar-fotos.py'
+
+# Necesario para que la rutina pueda guardar las fotos ya optimizadas.
+permissions:
+  contents: write
+
+jobs:
+  optimizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet Pillow
+
+      - run: python3 tools/optimizar-fotos.py
+
+      - name: Guardar las fotos optimizadas
+        run: |
+          if [ -z "$(git status --porcelain img/)" ]; then
+            echo "Las fotos ya estaban bien, no hay nada que guardar."
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add img/
+
+          # [skip ci] evita que este commit vuelva a disparar la rutina.
+          git commit -m "Optimizar las fotos nuevas [skip ci]"
+          git push
