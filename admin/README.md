@@ -24,15 +24,19 @@ una clave que me dieron".
 Es la pieza que conecta el panel con GitHub. **Va primero** porque los pasos
 siguientes necesitan su dirección.
 
-Sveltia publica el worker listo en
-<https://github.com/sveltia/sveltia-cms-auth>; ahí están las instrucciones de
-despliegue, que cambian con el tiempo.
+Sveltia lo publica listo en <https://github.com/sveltia/sveltia-cms-auth>.
+Ese repositorio trae un botón **Deploy to Cloudflare Workers** que hace todo
+el despliegue: no hay que instalar nada ni escribir código.
 
-A grandes rasgos: creas una cuenta gratis de Cloudflare y despliegas ese
-worker. Todavía sin configurarle nada.
+Después, en el panel de Cloudflare, el servicio aparece como
+`sveltia-cms-auth`. Copia su dirección, que queda con esta forma:
 
-Lo que necesitas de este paso es la dirección que queda al final, algo como
-`https://algo.workers.dev`.
+```
+https://sveltia-cms-auth.<TU-SUBDOMINIO>.workers.dev
+```
+
+Eso es lo único que necesitas de este paso. Todavía no le configures nada
+más: las variables se ponen en el paso 3, cuando ya existan.
 
 ## 3. La aplicación OAuth de GitHub
 
@@ -47,9 +51,17 @@ Con **tu** cuenta, entra a
 Guarda el **Client ID** y genera un **Client Secret**. El secret se ve una
 sola vez: cópialo apenas aparezca.
 
-Vuelve al worker de Cloudflare y configúrale como variables secretas ese
-`GITHUB_CLIENT_ID` y `GITHUB_CLIENT_SECRET`, más el dominio permitido
-(`josealvarez7337-art.github.io`).
+Vuelve al worker en Cloudflare, entra a **Settings → Variables**, y agrega
+estas tres con el nombre exacto:
+
+| Variable | Valor | Nota |
+|---|---|---|
+| `GITHUB_CLIENT_ID` | el Client ID | |
+| `GITHUB_CLIENT_SECRET` | el Client Secret | **márcala como encriptada** |
+| `ALLOWED_DOMAINS` | `josealvarez7337-art.github.io` | limita quién puede usar el worker |
+
+`ALLOWED_DOMAINS` no es obligatoria, pero sin ella cualquier sitio podría
+usar tu worker para pedir permisos sobre el repositorio. Ponla.
 
 ## 4. Conectar el panel
 
