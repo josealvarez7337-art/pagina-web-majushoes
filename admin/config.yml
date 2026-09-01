@@ -1,0 +1,142 @@
+# Configuración del panel de Maju Shoes (Sveltia CMS).
+#
+# FALTA UN PASO ANTES DE QUE ESTO FUNCIONE: reemplazar base_url por la
+# dirección del worker de Cloudflare que hace el login con GitHub. Mientras
+# diga PENDIENTE, el panel abre pero no deja entrar.
+# Las instrucciones están en admin/README.md.
+
+backend:
+  name: github
+  repo: josealvarez7337-art/pagina-web-majushoes
+  branch: main
+  base_url: https://PENDIENTE.workers.dev
+
+# Los cambios se guardan directo en main, sin pasar por revisión: la tienda
+# necesita que el zapato salga publicado apenas lo carga.
+publish_mode: simple
+
+# Dónde caen las fotos que suba la tienda.
+# OJO: public_folder va SIN barra inicial. La página está publicada en
+# /pagina-web-majushoes/, así que "/img/foto.jpeg" apuntaría a la raíz del
+# dominio y la foto saldría rota. Tiene que quedar "img/foto.jpeg".
+media_folder: img
+public_folder: img
+
+collections:
+  - name: catalogo
+    label: Catálogo
+    files:
+      - name: productos
+        label: Productos
+        file: data/products.json
+        description: >-
+          Los zapatos de la página. Al guardar, los cambios salen publicados
+          en menos de un minuto.
+        fields:
+          - name: products
+            label: Productos
+            label_singular: Producto
+            widget: list
+            collapsed: true
+            summary: '{{fields.name}} — {{fields.gender}}'
+            fields:
+              - name: name
+                label: Nombre
+                widget: string
+                hint: 'Como lo ve la clienta. Ejemplo: Nike Air Force One'
+
+              - name: brand
+                label: Marca
+                widget: select
+                hint: Agrupa el zapato con los de su misma marca en la página.
+                options:
+                  - Nike
+                  - Jordan
+                  - Puma
+                  - Skechers
+                  - Adidas
+                  - Bape
+                  - Calvin Klein
+                  - New Balance
+                  - Michael Kors
+                  - Clemont
+                  - Coach
+                  - Boss
+                  - Oakley
+                  - Off White
+                  - Creative
+
+              - name: gender
+                label: Para quién es
+                widget: select
+                default: Mujer
+                hint: >-
+                  Las tallas salen de aquí. Hombre 38 a 44, Dama 35 a 40,
+                  Unisex 35 a 44. El unisex aparece en Hombre y en Dama.
+                options:
+                  - Hombre
+                  - Mujer
+                  - Unisex
+
+              - name: price
+                label: Precio
+                widget: number
+                value_type: int
+                default: 175000
+                min: 0
+                hint: Sin puntos ni comas. Ejemplo 175000
+
+              - name: image
+                label: Foto
+                widget: image
+                required: false
+                hint: >-
+                  Una sola foto, del zapato completo. Se endereza y se
+                  comprime sola después de guardar.
+
+              - name: soldOut
+                label: Tallas agotadas
+                widget: select
+                multiple: true
+                required: false
+                default: []
+                hint: >-
+                  Marca solo las que se acabaron. Se siguen mostrando, pero
+                  tachadas y sin poder comprarlas.
+                options: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44']
+
+              - name: tag
+                label: Etiqueta
+                widget: select
+                required: false
+                default: ''
+                hint: Casi siempre va vacía.
+                options:
+                  - label: Sin etiqueta
+                    value: ''
+                  - label: Nuevo
+                    value: Nuevo
+                  - label: Últimas tallas
+                    value: Últimas tallas
+
+              - name: hero
+                label: Mostrar en la portada
+                widget: boolean
+                default: false
+                hint: >-
+                  Solo un zapato debe tenerlo activado. Es el que sale grande
+                  arriba del todo.
+
+              # Campos que la tienda no necesita ver.
+              # El id se rellena solo con el nombre de la foto si queda vacío.
+              # art es el dibujo de muestra que aparece si el producto no
+              # tiene foto.
+              - name: id
+                label: id
+                widget: hidden
+                required: false
+
+              - name: art
+                label: art
+                widget: hidden
+                default: classic
