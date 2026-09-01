@@ -1,15 +1,15 @@
 # Configuración del panel de Maju Shoes (Sveltia CMS).
 #
-# FALTA UN PASO ANTES DE QUE ESTO FUNCIONE: reemplazar base_url por la
-# dirección del worker de Cloudflare que hace el login con GitHub. Mientras
-# diga PENDIENTE, el panel abre pero no deja entrar.
-# Las instrucciones están en admin/README.md.
+# base_url apunta al worker de Cloudflare que hace el login con GitHub.
+# Si alguna vez se redespliega el worker con otro nombre o en otra cuenta,
+# hay que actualizar esta línea. Los pasos del montaje están en
+# admin/README.md.
 
 backend:
   name: github
   repo: josealvarez7337-art/pagina-web-majushoes
   branch: main
-  base_url: https://PENDIENTE.workers.dev
+  base_url: https://sveltia-cms-auth.josealvarez7337.workers.dev
 
 # Los cambios se guardan directo en main, sin pasar por revisión: la tienda
 # necesita que el zapato salga publicado apenas lo carga.
