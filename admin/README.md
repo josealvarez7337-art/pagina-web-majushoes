@@ -19,32 +19,37 @@ das acceso de escritura (**Write**).
 La tienda nunca crea ni administra esa cuenta. Desde su lado es "un usuario y
 una clave que me dieron".
 
-## 2. La aplicación OAuth de GitHub
+## 2. El worker de Cloudflare
+
+Es la pieza que conecta el panel con GitHub. **Va primero** porque los pasos
+siguientes necesitan su dirección.
+
+Sveltia publica el worker listo en
+<https://github.com/sveltia/sveltia-cms-auth>; ahí están las instrucciones de
+despliegue, que cambian con el tiempo.
+
+A grandes rasgos: creas una cuenta gratis de Cloudflare y despliegas ese
+worker. Todavía sin configurarle nada.
+
+Lo que necesitas de este paso es la dirección que queda al final, algo como
+`https://algo.workers.dev`.
+
+## 3. La aplicación OAuth de GitHub
 
 Con **tu** cuenta, entra a
 **Settings → Developer settings → OAuth Apps → New OAuth App**:
 
 - **Application name:** Panel Maju Shoes
 - **Homepage URL:** `https://josealvarez7337-art.github.io/pagina-web-majushoes/`
-- **Authorization callback URL:** la dirección del worker del paso 3, con
-  `/callback` al final
+- **Authorization callback URL:** la dirección del paso 2 con `/callback` al
+  final. Ejemplo: `https://algo.workers.dev/callback`
 
 Guarda el **Client ID** y genera un **Client Secret**. El secret se ve una
-sola vez.
+sola vez: cópialo apenas aparezca.
 
-## 3. El worker de Cloudflare
-
-Es la pieza que conecta el panel con GitHub. Sveltia publica el worker listo
-en <https://github.com/sveltia/sveltia-cms-auth>; ahí están las instrucciones
-de despliegue, que cambian con el tiempo.
-
-A grandes rasgos: creas una cuenta gratis de Cloudflare, despliegas ese
-worker, y le configuras como variables secretas el `GITHUB_CLIENT_ID` y el
-`GITHUB_CLIENT_SECRET` del paso 2, más el dominio permitido
+Vuelve al worker de Cloudflare y configúrale como variables secretas ese
+`GITHUB_CLIENT_ID` y `GITHUB_CLIENT_SECRET`, más el dominio permitido
 (`josealvarez7337-art.github.io`).
-
-Al final te queda una dirección tipo `https://algo.workers.dev`. Vuelve al
-paso 2 y pon esa dirección con `/callback` al final como callback URL.
 
 ## 4. Conectar el panel
 
