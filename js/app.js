@@ -33,6 +33,38 @@ function sizesOf(p) {
   return p.sizes || TALLAS[p.gender] || [];
 }
 
+/* Deja cada producto del JSON en la forma que espera la página.
+
+   Hace falta porque el panel de la tienda escribe ese archivo, y un
+   formulario web guarda las tallas agotadas y el precio como texto ("38")
+   en vez de número (38). Sin esto, una talla agotada no se vería tachada.
+   También rellena el id cuando falta, sacándolo del nombre de la foto, para
+   que la tienda no tenga que inventarse uno al cargar un producto. */
+function normalizar(p) {
+  var id = p.id;
+  if (!id) {
+    var base = (p.image || p.name || '').split('/').pop();
+    id = base.replace(/\.[a-z0-9]+$/i, '')
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
+  return {
+    id: id,
+    name: p.name || '',
+    brand: p.brand || '',
+    gender: p.gender || 'Unisex',
+    price: Number(p.price) || 0,
+    sizes: Array.isArray(p.sizes) && p.sizes.length ? p.sizes.map(Number) : null,
+    soldOut: Array.isArray(p.soldOut) ? p.soldOut.map(Number) : [],
+    tag: p.tag || '',
+    art: p.art || 'classic',
+    image: p.image || '',
+    hero: !!p.hero,
+  };
+}
+
 /* Filtros del catálogo */
 var FILTERS = {
   todos: 'Todos',
@@ -254,7 +286,7 @@ function cargarCatalogo() {
       return r.json();
     })
     .then(function (data) {
-      PRODUCTS = (data && data.products) || [];
+      PRODUCTS = ((data && data.products) || []).map(normalizar);
       renderChips();
       renderCatalog();
       applyHero();
